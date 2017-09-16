@@ -1,0 +1,9 @@
+@import '../../variables.css';
+
+.error {
+  background-color: var(--main-dark-blue);
+  border-radius: var(--app-radius);
+  color: var(--main-white);
+  margin: (var(--vspace) / 2) 0;
+  padding: (var(--vspace) * 2) var(--hspace);
+}

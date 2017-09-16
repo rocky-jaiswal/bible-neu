@@ -1,0 +1,54 @@
+@import '../../variables.css';
+
+.footer {
+  align-items: center;
+  background-color: var(--main-white);
+  border-top: 1px solid var(--border-gray);
+  color: var(--main-gray);
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  padding: var(--vspace) var(--hspace);
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0 var(--hspace) var(--vspace) var(--hspace);
+}
+
+.footer li {
+  margin-right: var(--hspace);
+  display: inline;
+}
+
+.footer a {
+  color: var(--main-gray);
+  text-decoration: none;
+}
+
+.footerLink:after {
+  content: "\00a0\203a";
+}
+
+.footerSocialMedia {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .footerSocialMedia {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.footerInfo {
+  align-items: center;
+  border-top: 1px solid var(--border-gray);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

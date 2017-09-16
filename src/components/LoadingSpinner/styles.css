@@ -1,0 +1,30 @@
+@import '../../variables.css';
+
+.spinnerWrapper {
+  display: flex;
+  flex-direction: row;
+  padding: var(--vspace) * 2;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: rotate 0.75s linear infinite;
+  border: 5px solid var(--main-dark-blue);
+  border-radius: 50%;
+  border-right-color: transparent;
+  height: 30px;
+  width: 30px;
+}

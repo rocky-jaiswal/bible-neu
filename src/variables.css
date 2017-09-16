@@ -1,0 +1,12 @@
+:root {
+  --main-white: #FEFEFE;
+  --main-light-blue: #34C7D9;
+  --main-darker-blue: #1580CE;
+  --main-dark-blue: #203255;
+  --main-gray: #565C88;
+  --app-radius: 2px;
+  --main-font: sans-serif;
+  --vspace: 10px;
+  --hspace: 10px;
+  --header-height: 100px;
+}

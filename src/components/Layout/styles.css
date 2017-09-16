@@ -1,0 +1,17 @@
+@import '../../variables.css';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.main {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  padding: var(--vspace) calc(var(--hspace) * 2);
+  margin-top: var(--header-height);
+}
+

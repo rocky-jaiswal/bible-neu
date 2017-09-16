@@ -1,0 +1,10 @@
+@import '../../main.css';
+
+.title {
+  color: var(--main-dark);
+}
+
+button {
+  padding: var(--vspace) var(--hspace);
+  border: 1px solid var(--main-dark);
+}

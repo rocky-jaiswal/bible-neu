@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osis xsi:schemaLocation='http://www.bibletechnologies.net/2003/OSIS/namespace http://www.bibletechnologies.net/osisCore.2.1.1.xsd' xmlns='http://www.bibletechnologies.net/2003/OSIS/namespace' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+  <osisText xml:lang='de' osisRefWork='Bible' osisIDWork='GerNeUe'>
+    <div type='book' osisID='Gen'>
+      <chapter osisID='Gen.1'>
+        <verse osisID='Gen.1.1'>Im Anfang schuf Gott Himmel und Erde.</verse>
+        <verse osisID='Gen.1.2'>Die Erde war formlos und leer. Finsternis lag über der Tiefe, und der Geist Gottes schwebte über dem wogenden Wasser.</verse>
+        <verse osisID='Gen.1.3'>Da sprach Gott: "Es werde Licht!" Und das Licht entstand.</verse>
+        <verse osisID='Gen.1.4'>Gott sah es an: Es war gut. Da trennte Gott das Licht von der Finsternis.</verse>
+        <verse osisID='Gen.1.5'>Das Licht nannte er "Tag" und die Finsternis "Nacht". Es wurde Abend und wieder Morgen - ein Tag.</verse>
+        <verse osisID='Gen.1.6'>Dann sprach Gott: "Im Wasser soll eine Wölbung entstehen, eine Trennung zwischen den Wassermassen!"</verse>
+        <verse osisID='Gen.1.7'>So geschah es auch. Gott machte die Wölbung und trennte die Wassermassen unterhalb der Wölbung von denen darüber.</verse>
+        <verse osisID='Gen.1.8'>Die Wölbung nannte Gott "Himmel". Es wurde Abend und wieder Morgen - zweiter Tag.</verse>
+        <verse osisID='Gen.1.9'>Dann sprach Gott: "Die Wassermassen unter dem Himmel sollen sich an einer Stelle sammeln. Das Land soll zum Vorschein kommen." So geschah es.</verse>
+        <verse osisID='Gen.1.10'>Und Gott nannte das trockene Land "Erde". Die Ansammlung der Wasser aber nannte er "Meer". Gott sah alles an: Es war gut.</verse>
+        <verse osisID='Gen.1.11'>Dann sprach Gott: "Die Erde lasse Gras hervorsprießen. Pflanzen und Bäume jeder Art sollen wachsen und Samen und samenhaltige Früchte tragen." So geschah es.</verse>
+        <verse osisID='Gen.1.12'>Die Erde brachte frisches Grün hervor, alle Sorten samentragender Pflanzen und jede Art von Bäumen mit samenhaltigen Früchten. Gott sah es an: Es war gut.</verse>
+        <verse osisID='Gen.1.13'>Es wurde Abend und wieder Morgen - dritter Tag.</verse>
+        <verse osisID='Gen.1.14'>Dann sprach Gott: "An der Wölbung des Himmels sollen Lichter erscheinen. Sie sollen Tag und Nacht voneinander trennen, und als leuchtende Zeichen sollen sie die Zeiten bestimmen: Tage, Feste und Jahre.</verse>
+        <verse osisID='Gen.1.15'>Außerdem sollen sie als Lichter am Himmelsgewölbe die Erde beleuchten." So geschah es.</verse>
+        <verse osisID='Gen.1.16'>Gott machte die beiden großen Lichter: das größere, das den Tag regiert, und das kleinere für die Nacht; und dazu die Sterne.</verse>
+        <verse osisID='Gen.1.17'>Er setzte sie an das Himmelsgewölbe, damit sie über die Erde leuchten.</verse>
+        <verse osisID='Gen.1.18'>Sie sollten den Tag und die Nacht regieren und Licht und Finsternis voneinander trennen. Gott sah es an: Es war gut.</verse>
+        <verse osisID='Gen.1.19'>Es wurde Abend und wieder Morgen - vierter Tag.</verse>
+        <verse osisID='Gen.1.20'>Dann sprach Gott: "Im Wasser soll es von Lebewesen aller Art wimmeln und am Himmel sollen Vögel fliegen!"</verse>
+        <verse osisID='Gen.1.21'>Da schuf Gott die großen Seeungeheuer und Wesen aller Art, von denen die Wasser wimmeln, dazu alle Arten von geflügelten Tieren. Gott sah es an. Es war gut.</verse>
+        <verse osisID='Gen.1.22'>Da segnete Gott seine Geschöpfe: "Seid fruchtbar und vermehrt euch und füllt das Wasser in den Meeren! Und auch ihr Vögel, vermehrt euch auf der Erde!"</verse>
+        <verse osisID='Gen.1.23'>Es wurde Abend und wieder Morgen - fünfter Tag.</verse>
+        <verse osisID='Gen.1.24'>Dann sprach Gott: "Die Erde soll alle Arten von Lebewesen hervorbringen: Herdenvieh und wilde Tiere und alles, was kriecht!" So geschah es.</verse>
+        <verse osisID='Gen.1.25'>Gott machte alle Arten von wilden Tieren, von Herdenvieh und von allem, was sich auf der Erde regt. Gott sah es an: Es war gut.</verse>
+        <verse osisID='Gen.1.26'>Dann sprach Gott: "Lasst uns Menschen machen als Abbild von uns, uns ähnlich. Sie sollen über die Fische im Meer herrschen, über die Vögel am Himmel und über die Landtiere, über die ganze Erde und alles, was auf ihr kriecht!"</verse>
+        <verse osisID='Gen.1.27'>Da schuf Gott den Menschen nach seinem Bild, als sein Ebenbild schuf er ihn. Er schuf sie als Mann und Frau.</verse>
+        <verse osisID='Gen.1.28'>Und Gott segnete sie: "Seid fruchtbar und vermehrt euch! Füllt die Erde und macht sie euch untertan! Herrscht über die Fische im Meer, über die Vögel am Himmel und über alle Tiere, die auf der Erde leben!"</verse>
+        <verse osisID='Gen.1.29'>Gott sagte: "Zur Nahrung gebe ich euch alle samentragenden Pflanzen und alle samenhaltigen Früchte von Bäumen - überall auf der Erde.</verse>
+        <verse osisID='Gen.1.30'>Allen Landtieren, allen Vögeln und allen Lebewesen, die auf dem Boden kriechen, gebe ich Gras und Blätter zur Nahrung." So geschah es.</verse>
+        <verse osisID='Gen.1.31'>Gott sah alles an, was er gemacht hatte: Es war sehr gut. Es wurde Abend und wieder Morgen - sechster Tag.</verse>
+      </chapter>
+    </div>
+  </osisText>
+</osis>
