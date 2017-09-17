@@ -5,8 +5,9 @@
   --main-dark-blue: #203255;
   --main-gray: #565C88;
   --app-radius: 2px;
-  --main-font: sans-serif;
+  --main-font: 'Roboto', sans-serif;
+  --display-font: 'Bitter', sans-serif;
   --vspace: 10px;
   --hspace: 10px;
-  --header-height: 100px;
+  --header-height: 80px;
 }

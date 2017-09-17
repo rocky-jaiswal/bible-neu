@@ -1,3 +1,4 @@
+import LanguageSwitcher from '../LanguageSwitcher';
 import * as React from 'react';
 
 import { ActionType } from '../../constants/types';
@@ -12,10 +13,7 @@ interface Props {
 const RightSidebar: React.SFC<Props> = (props) => {
   return (
     <div className={props.rightSidebarVisible ? 'rightSidebar' : 'hidden'}>
-      <div className="buttonBar">
-        <button className="langButton" onClick={() => props.switchLanguage(LocaleEnum.en)}>EN</button>
-        <button className="langButton" onClick={() => props.switchLanguage(LocaleEnum.de)}>DE</button>
-      </div>
+      <LanguageSwitcher switchLanguage={props.switchLanguage} />
     </div>
   );
 };

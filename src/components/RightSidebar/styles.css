@@ -14,6 +14,7 @@
   right: 0px;
   width: 300px;
   height: 100%;
+  background: var(--main-white);
   padding: var(--vspace) calc(var(--hspace) * 2);
   box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.33);
   /* animation-name: slider;
@@ -23,16 +24,4 @@
 .hidden {
   display: none;
   visibility: hidden;
-}
-
-.buttonBar {
-  display: flex;
-  width: 100%;
-}
-
-.langButton {
-  width: 33.3333%;
-  height: 60px;
-  background-color: rgba(0,0,0,.02);
-  border: 1px solid rgba(0,0,0,.15);
 }

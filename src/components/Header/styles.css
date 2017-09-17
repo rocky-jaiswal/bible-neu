@@ -20,11 +20,16 @@
 
 .headerContainer {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 100%;
   padding: var(--vspace) var(--hspace);
+}
+
+.headerContainer h1 {
+  color: var(--main-white);
+  font-size: 1.5rem;
 }
 
 .logo {

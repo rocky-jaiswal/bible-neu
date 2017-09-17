@@ -12,6 +12,7 @@ const Header: React.SFC<Props> = (props) => {
   return (
     <div className="header headerFixed">
       <div className="headerContainer">
+        <h1>SimpleBible</h1>
         <div className="logo" onClick={() => props.toggleRightSidebar()}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
