@@ -5,7 +5,7 @@ const environmentConfiguration = (environment: string) => {
 
   if (environment === 'development') {
     return Object.assign(defaultConf, {
-      baseURL: `http://${window.location.hostname}:3001`
+      baseURL: `http://${window.location.hostname}:3000/json`
     });
   }
   return Object.assign(defaultConf, {

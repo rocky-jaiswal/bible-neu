@@ -4,51 +4,68 @@ import { ActionType, AppStateType } from '../../constants/types';
 import { LocaleEnum } from '../../constants/enums';
 
 import {
-  FETCH_INFO_ERROR,
-  FETCH_INFO_INFLIGHT,
-  FETCH_INFO_SUCCESSFUL,
-  INCREMENT_COUNTER,
+  FETCH_EN_BIBLE_ERROR,
+  FETCH_EN_BIBLE_INFLIGHT,
+  FETCH_EN_BIBLE_SUCCESSFUL,
+  FETCH_DE_BIBLE_ERROR,
+  FETCH_DE_BIBLE_INFLIGHT,
+  FETCH_DE_BIBLE_SUCCESSFUL,
   SWITCH_LANGUAGE,
   TOGGLE_RIGHT_SIDEBAR,
 } from './constants';
 
 const istate: AppStateType = {
-  counter: 0,
   error: undefined,
   loading: false,
   locale: LocaleEnum.en,
-  rightSidebarVisible: false
+  rightSidebarVisible: false,
+  selectedBook: 'Gen',
+  selectedChapter: 1,
+  deBible: [],
+  enBible: []
 };
 
 export const initialState = Immutable.from(istate);
 
-const appReducer = (state = initialState, action: ActionType<{}>): AppStateType => {
+// tslint:disable-next-line:no-any
+const appReducer = (state = initialState, action: ActionType<any>): AppStateType => {
   switch (action.type) {
 
     case SWITCH_LANGUAGE:
       return state
         .set('locale', action.payload);
 
-    case FETCH_INFO_INFLIGHT:
+    case FETCH_EN_BIBLE_INFLIGHT:
       return state
         .set('loading', true);
 
-    case FETCH_INFO_SUCCESSFUL:
+    case FETCH_DE_BIBLE_INFLIGHT:
       return state
+        .set('loading', true);
+
+    case FETCH_EN_BIBLE_SUCCESSFUL:
+      return state
+        .set('enBible', action.payload)
         .set('loading', false);
 
-    case FETCH_INFO_ERROR:
+    case FETCH_DE_BIBLE_SUCCESSFUL:
+      return state
+        .set('deBible', action.payload)
+        .set('loading', false);
+
+    case FETCH_EN_BIBLE_ERROR:
       return state
         .set('loading', false)
-        .set('error', FETCH_INFO_ERROR);
+        .set('error', FETCH_EN_BIBLE_ERROR);
+
+    case FETCH_DE_BIBLE_ERROR:
+      return state
+        .set('loading', false)
+        .set('error', FETCH_DE_BIBLE_ERROR);
 
     case TOGGLE_RIGHT_SIDEBAR:
       return state
         .set('rightSidebarVisible', !state.rightSidebarVisible);
-
-    case INCREMENT_COUNTER:
-      return state
-        .set('counter', state.counter + 1);
 
     default:
       return state;

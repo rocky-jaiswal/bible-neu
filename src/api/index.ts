@@ -14,9 +14,14 @@ const AppAPI = {
     });
   },
 
-  async fetchInfo() {
+  async fetchDeBible() {
     return await AppAPI.init()
-      .get(Config.env.baseURL + '/api/info');
+      .get(Config.env.baseURL + '/bible-de.json');
+  },
+
+  async fetchEnBible() {
+    return await AppAPI.init()
+      .get(Config.env.baseURL + '/bible-en.json');
   }
 
 };

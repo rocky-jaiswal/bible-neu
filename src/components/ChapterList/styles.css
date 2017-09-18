@@ -1,0 +1,15 @@
+.chapterList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.book {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+  width: 94.5%;
+  background-color: var(--main-light-blue);
+  border-bottom: 1px solid var(--main-white);
+}

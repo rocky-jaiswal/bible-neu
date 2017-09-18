@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
+import { LocaleEnum } from '../../../constants/enums';
 import Layout from '../';
 
 describe('<Layout />', () => {
@@ -8,6 +9,9 @@ describe('<Layout />', () => {
   test('shows the right components', () => {
     const wrapper = shallow(
       <Layout
+        selectedLocale={LocaleEnum.de}
+        deBookNames={[]}
+        enBookNames={[]}
         children={<div/>}
         rightSidebarVisible={true}
         switchLanguage={jest.fn()}

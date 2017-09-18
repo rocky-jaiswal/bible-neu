@@ -17,6 +17,7 @@
   background: var(--main-white);
   padding: var(--vspace) calc(var(--hspace) * 2);
   box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.33);
+  overflow: scroll;
   /* animation-name: slider;
   animation-duration: 0.5s; */
 }

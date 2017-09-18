@@ -1,5 +1,12 @@
-import { fetchQuestionsWatcher } from './fetchInfo';
+import {
+  fetchEnBibleWatcher
+} from './fetchEnBible';
+
+import {
+  fetchDeBibleWatcher
+} from './fetchDeBible';
 
 export default [
-  fetchQuestionsWatcher
+  fetchEnBibleWatcher,
+  fetchDeBibleWatcher
 ];

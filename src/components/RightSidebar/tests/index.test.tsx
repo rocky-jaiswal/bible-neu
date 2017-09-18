@@ -1,3 +1,4 @@
+import { LocaleEnum } from '../../../constants/enums';
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
@@ -8,6 +9,9 @@ describe('<RightSidebar />', () => {
   test('displays when needed', () => {
     const wrapper = shallow(
       <RightSidebar
+        selectedLocale={LocaleEnum.de}
+        deBookNames={[]}
+        enBookNames={[]}
         rightSidebarVisible={true}
         switchLanguage={jest.fn()}
       />
@@ -19,6 +23,9 @@ describe('<RightSidebar />', () => {
   test('hides when needed', () => {
     const wrapper = shallow(
       <RightSidebar
+        selectedLocale={LocaleEnum.de}
+        deBookNames={[]}
+        enBookNames={[]}
         rightSidebarVisible={false}
         switchLanguage={jest.fn()}
       />

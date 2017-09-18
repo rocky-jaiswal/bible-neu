@@ -2,12 +2,22 @@ import { Dispatch as ReduxDispatch } from 'redux';
 
 import { LocaleEnum } from './enums';
 
+export interface Verse {
+  book: string;
+  chapter: number;
+  verse: number;
+  text: string;
+}
+
 interface AppState {
-  counter: number;
   error?: string;
   loading: boolean;
   locale: LocaleEnum;
   rightSidebarVisible: boolean;
+  selectedBook: string;
+  selectedChapter: number;
+  deBible: Verse[];
+  enBible: Verse[];
 }
 
 export type AppStateType = AppState;

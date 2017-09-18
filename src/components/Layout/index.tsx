@@ -10,6 +10,9 @@ import { LocaleEnum } from '../../constants/enums';
 import './styles.css';
 
 interface Props {
+  selectedLocale: LocaleEnum;
+  deBookNames: string[];
+  enBookNames: string[];
   children: React.ReactElement<{}>;
   rightSidebarVisible: boolean;
   switchLanguage(payload: LocaleEnum): ActionType<string>;
@@ -26,6 +29,9 @@ const Layout: React.SFC<Props> = (props) => {
       <div className="main">
         {props.children}
         <RightSidebar
+          selectedLocale={props.selectedLocale}
+          deBookNames={props.deBookNames}
+          enBookNames={props.enBookNames}
           rightSidebarVisible={props.rightSidebarVisible}
           switchLanguage={props.switchLanguage}
         />

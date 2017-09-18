@@ -2,41 +2,45 @@ import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
-import { fetchInfo, incrementCounter } from '../../redux/app/actions';
-import { ActionType, Dispatch, RootStateType } from '../../constants/types';
+import { ActionType, Dispatch, RootStateType, Verse } from '../../constants/types';
+import { fetchEnBible, fetchDeBible } from '../../redux/app/actions';
+
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { wrapped } from '../Wrapper';
 
 import './styles.css';
 
 interface Props {
-  counter: number;
   loading: boolean;
+  deBible: Verse[];
+  enBible: Verse[];
 }
 
 interface DispatchProps {
-  incrementCounter(): ActionType<{}>;
-  fetchInfo(): ActionType<string>;
+  fetchEnBible(): ActionType<{}>;
+  fetchDeBible(): ActionType<{}>;
 }
 
 const mapStateToProps = (state: RootStateType, ownProps: {}): Props => {
   return {
-    counter: state.app.counter,
-    loading: state.app.loading
+    loading: state.app.loading,
+    deBible: state.app.deBible,
+    enBible: state.app.enBible
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    incrementCounter: () => dispatch(incrementCounter()),
-    fetchInfo: () => dispatch(fetchInfo())
+    fetchDeBible: () => dispatch(fetchDeBible()),
+    fetchEnBible: () => dispatch(fetchEnBible())
   };
 };
 
 export class Root extends React.Component<Props & DispatchProps> {
 
   componentDidMount() {
-    // this.props.fetchInfo();
+    this.props.fetchDeBible();
+    this.props.fetchEnBible();
   }
 
   render() {
@@ -46,10 +50,6 @@ export class Root extends React.Component<Props & DispatchProps> {
         <h1 className="title">
           <FormattedMessage id="root.heading" />
         </h1>
-        <h2>{this.props.counter}</h2>
-        <button onClick={this.props.incrementCounter}>
-          Increment Counter
-        </button>
       </div>
     );
   }
