@@ -1,3 +1,4 @@
+import BookView from '../containers/BookView';
 import Root from '../containers/Root';
 
 interface RouteDefinition {
@@ -17,6 +18,12 @@ const routes: Routes = {
     component: Root,
     exact: true,
     path: '/'
+  },
+  book: {
+    sequence: 2,
+    component: BookView,
+    exact: true,
+    path: '/books/:book'
   }
 };
 

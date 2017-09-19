@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 import { LocaleEnum } from '../../constants/enums';
 
@@ -11,23 +12,21 @@ interface Props {
 }
 
 const ChapterList: React.SFC<Props> = (props) => {
-  const deBooks = () => {
-    return props.deBookNames.map((b, i) => {
 
-      return <div className="book" key={i}>{b}</div>;
-    });
-  };
-
-  const enBooks = () => {
-    return props.enBookNames.map((b, i) => {
-
-      return <div className="book" key={i}>{b}</div>;
+  const books = (booknames: string[]) => {
+    return booknames.map((b, i) => {
+      return (
+        <div className="book" key={i}>
+          <Link to={`/books/${b}`}>{b}</Link>
+        </div>
+      );
     });
   };
 
   return (
     <div className="chapterList">
-      {props.selectedLocale === LocaleEnum.de ? deBooks() : enBooks()}
+      {props.selectedLocale === LocaleEnum.de ?
+        books(props.deBookNames) : books(props.deBookNames)}
     </div>
   );
 };

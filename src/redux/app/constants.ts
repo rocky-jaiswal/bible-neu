@@ -10,3 +10,5 @@ export const FETCH_DE_BIBLE            = 'app/App/FETCH_DE_BIBLE';
 export const FETCH_DE_BIBLE_INFLIGHT   = 'app/App/FETCH_DE_BIBLE_INFLIGHT';
 export const FETCH_DE_BIBLE_SUCCESSFUL = 'app/App/FETCH_DE_BIBLE_SUCCESSFUL';
 export const FETCH_DE_BIBLE_ERROR      = 'app/App/FETCH_DE_BIBLE_ERROR';
+
+export const SET_CURRENT_BOOK          = 'app/App/SET_CURRENT_BOOK';

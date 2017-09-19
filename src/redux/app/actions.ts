@@ -8,6 +8,7 @@ import {
   FETCH_EN_BIBLE_ERROR,
   FETCH_EN_BIBLE_INFLIGHT,
   FETCH_EN_BIBLE_SUCCESSFUL,
+  SET_CURRENT_BOOK,
   SWITCH_LANGUAGE,
   TOGGLE_RIGHT_SIDEBAR,
 } from './constants';
@@ -74,5 +75,11 @@ export function fetchDeBibleFailed() {
 export function toggleRightSidebar() {
   return {
     type: TOGGLE_RIGHT_SIDEBAR
+  };
+}
+
+export function setCurrentBook(payload: string) {
+  return {
+    type: SET_CURRENT_BOOK
   };
 }

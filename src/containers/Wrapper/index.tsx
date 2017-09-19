@@ -14,19 +14,23 @@ interface Props {
   rightSidebarVisible: boolean;
   deBible: Verse[];
   enBible: Verse[];
+  // tslint:disable-next-line:no-any
+  match: any;
 }
 
 interface DispatchProps {
   switchLanguage(payload: LocaleEnum): ActionType<LocaleEnum>;
-  toggleRightSidebar(): ActionType<string>;
+  toggleRightSidebar(): ActionType<never>;
 }
 
-const mapStateToProps = (state: RootStateType, ownProps: {}): Props => {
+// tslint:disable-next-line:no-any
+const mapStateToProps = (state: RootStateType, ownProps: any): Props => {
   return {
     locale: state.app.locale,
     rightSidebarVisible: state.app.rightSidebarVisible,
     deBible: state.app.deBible,
-    enBible: state.app.enBible
+    enBible: state.app.enBible,
+    match: ownProps.match
   };
 };
 
@@ -57,7 +61,7 @@ export const wrapped = (WrappedComponent: any): any => {
           switchLanguage={this.props.switchLanguage}
           toggleRightSidebar={this.props.toggleRightSidebar}
         >
-          <WrappedComponent />
+          <WrappedComponent match={this.props.match}/>
         </Layout>
       );
     }

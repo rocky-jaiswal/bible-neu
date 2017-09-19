@@ -13,3 +13,8 @@
   background-color: var(--main-light-blue);
   border-bottom: 1px solid var(--main-white);
 }
+
+.chapterList a {
+  color: var(--main-white);
+  text-decoration: none;
+}
