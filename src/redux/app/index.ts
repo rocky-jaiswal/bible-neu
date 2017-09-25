@@ -4,12 +4,14 @@ import { ActionType, AppStateType } from '../../constants/types';
 import { LocaleEnum } from '../../constants/enums';
 
 import {
-  FETCH_EN_BIBLE_ERROR,
-  FETCH_EN_BIBLE_INFLIGHT,
-  FETCH_EN_BIBLE_SUCCESSFUL,
   FETCH_DE_BIBLE_ERROR,
   FETCH_DE_BIBLE_INFLIGHT,
   FETCH_DE_BIBLE_SUCCESSFUL,
+  FETCH_EN_BIBLE_ERROR,
+  FETCH_EN_BIBLE_INFLIGHT,
+  FETCH_EN_BIBLE_SUCCESSFUL,
+  SET_CURRENT_BOOK,
+  SET_CURRENT_CHAPTER,
   SWITCH_LANGUAGE,
   TOGGLE_RIGHT_SIDEBAR,
 } from './constants';
@@ -21,8 +23,8 @@ const istate: AppStateType = {
   rightSidebarVisible: false,
   selectedBook: 'Gen',
   selectedChapter: 1,
-  deBible: [],
-  enBible: []
+  enBibleLoaded: localStorage.getItem('enBibleLoaded') === 'true' ? true : false,
+  deBibleLoaded: localStorage.getItem('deBibleLoaded') === 'true' ? true : false
 };
 
 export const initialState = Immutable.from(istate);
@@ -44,13 +46,15 @@ const appReducer = (state = initialState, action: ActionType<any>): AppStateType
         .set('loading', true);
 
     case FETCH_EN_BIBLE_SUCCESSFUL:
+      localStorage.setItem('enBibleLoaded', 'true');
       return state
-        .set('enBible', action.payload)
+        .set('enBibleLoaded', true)
         .set('loading', false);
 
     case FETCH_DE_BIBLE_SUCCESSFUL:
+      localStorage.setItem('deBibleLoaded', 'true');
       return state
-        .set('deBible', action.payload)
+        .set('deBibleLoaded', true)
         .set('loading', false);
 
     case FETCH_EN_BIBLE_ERROR:
@@ -66,6 +70,14 @@ const appReducer = (state = initialState, action: ActionType<any>): AppStateType
     case TOGGLE_RIGHT_SIDEBAR:
       return state
         .set('rightSidebarVisible', !state.rightSidebarVisible);
+
+    case SET_CURRENT_BOOK:
+      return state
+        .set('selectedBook', action.payload);
+
+    case SET_CURRENT_CHAPTER:
+      return state
+        .set('selectedChapter', action.payload);
 
     default:
       return state;

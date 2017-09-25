@@ -1,9 +1,10 @@
+import { getAllVerses } from '../../lib/db';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import * as _ from 'lodash';
+// import * as _ from 'lodash';
 
 import Layout from '../../components/Layout';
-import { ActionType, Dispatch, RootStateType, Verse } from '../../constants/types';
+import { ActionType, Dispatch, RootStateType } from '../../constants/types';
 import { LocaleEnum } from '../../constants/enums';
 import { switchLanguage, toggleRightSidebar } from '../../redux/app/actions';
 
@@ -12,8 +13,8 @@ import './styles.css';
 interface Props {
   locale: LocaleEnum;
   rightSidebarVisible: boolean;
-  deBible: Verse[];
-  enBible: Verse[];
+  selectedBook: string;
+  selectedChapter: number;
   // tslint:disable-next-line:no-any
   match: any;
 }
@@ -28,8 +29,8 @@ const mapStateToProps = (state: RootStateType, ownProps: any): Props => {
   return {
     locale: state.app.locale,
     rightSidebarVisible: state.app.rightSidebarVisible,
-    deBible: state.app.deBible,
-    enBible: state.app.enBible,
+    selectedBook: state.app.selectedBook,
+    selectedChapter: state.app.selectedChapter,
     match: ownProps.match
   };
 };
@@ -41,9 +42,9 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   };
 };
 
-const bookNames = (verses: Verse[]): string[] => {
+const bookNames = (): void => {
 
-  return _.uniq(verses.map(v => v.book));
+  getAllVerses(); // TODO: WIP
 };
 
 // tslint:disable-next-line:no-any
@@ -52,12 +53,15 @@ export const wrapped = (WrappedComponent: any): any => {
   class Wrapper extends React.Component<Props & DispatchProps> {
 
     render() {
+      bookNames();
       return (
         <Layout
-          deBookNames={bookNames(this.props.deBible)}
-          enBookNames={bookNames(this.props.enBible)}
+          deBookNames={[]}
+          enBookNames={[]}
           selectedLocale={this.props.locale}
           rightSidebarVisible={this.props.rightSidebarVisible}
+          selectedBook={this.props.selectedBook}
+          selectedChapter={this.props.selectedChapter}
           switchLanguage={this.props.switchLanguage}
           toggleRightSidebar={this.props.toggleRightSidebar}
         >

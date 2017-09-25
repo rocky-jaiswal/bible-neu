@@ -34,9 +34,8 @@ export function fetchEnBibleInProgress() {
   };
 }
 
-export function fetchEnBibleSuccessful(payload: string) {
+export function fetchEnBibleSuccessful() {
   return {
-    payload,
     type: FETCH_EN_BIBLE_SUCCESSFUL
   };
 }
@@ -59,9 +58,8 @@ export function fetchDeBibleInProgress() {
   };
 }
 
-export function fetchDeBibleSuccessful(payload: string) {
+export function fetchDeBibleSuccessful() {
   return {
-    payload,
     type: FETCH_DE_BIBLE_SUCCESSFUL
   };
 }
@@ -80,6 +78,14 @@ export function toggleRightSidebar() {
 
 export function setCurrentBook(payload: string) {
   return {
+    payload,
+    type: SET_CURRENT_BOOK
+  };
+}
+
+export function setCurrentChapter(payload: number) {
+  return {
+    payload,
     type: SET_CURRENT_BOOK
   };
 }

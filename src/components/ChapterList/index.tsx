@@ -1,23 +1,20 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-import { LocaleEnum } from '../../constants/enums';
-
 import './styles.css';
 
 interface Props {
-  selectedLocale: LocaleEnum;
-  deBookNames: string[];
-  enBookNames: string[];
+  selectedBook: string;
+  chapterList: number[];
 }
 
-const ChapterList: React.SFC<Props> = (props) => {
+const BookList: React.SFC<Props> = (props) => {
 
-  const books = (booknames: string[]) => {
-    return booknames.map((b, i) => {
+  const chapters = () => {
+    return props.chapterList.map((c, i) => {
       return (
         <div className="book" key={i}>
-          <Link to={`/books/${b}`}>{b}</Link>
+          <Link to={`/books/${props.selectedBook}/chapter/${c}`}>{c}</Link>
         </div>
       );
     });
@@ -25,10 +22,9 @@ const ChapterList: React.SFC<Props> = (props) => {
 
   return (
     <div className="chapterList">
-      {props.selectedLocale === LocaleEnum.de ?
-        books(props.deBookNames) : books(props.deBookNames)}
+      {chapters()}
     </div>
   );
 };
 
-export default ChapterList;
+export default BookList;

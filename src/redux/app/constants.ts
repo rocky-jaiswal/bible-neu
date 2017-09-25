@@ -12,3 +12,4 @@ export const FETCH_DE_BIBLE_SUCCESSFUL = 'app/App/FETCH_DE_BIBLE_SUCCESSFUL';
 export const FETCH_DE_BIBLE_ERROR      = 'app/App/FETCH_DE_BIBLE_ERROR';
 
 export const SET_CURRENT_BOOK          = 'app/App/SET_CURRENT_BOOK';
+export const SET_CURRENT_CHAPTER       = 'app/App/SET_CURRENT_CHAPTER';

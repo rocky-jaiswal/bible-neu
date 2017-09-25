@@ -1,4 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
+import { storeENBible } from '../lib/db';
 
 import {
   fetchEnBibleFailed,
@@ -15,7 +16,8 @@ export function* fetchEnBible(): {} {
     yield put(fetchEnBibleInProgress());
 
     const result = yield call(API.fetchEnBible);
-    yield put(fetchEnBibleSuccessful(result.data));
+    yield call(storeENBible, result.data);
+    yield put(fetchEnBibleSuccessful());
   } catch (err) {
     // tslint:disable-next-line:no-console
     console.error(err);

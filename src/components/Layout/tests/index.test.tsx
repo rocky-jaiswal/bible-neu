@@ -14,6 +14,8 @@ describe('<Layout />', () => {
         enBookNames={[]}
         children={<div/>}
         rightSidebarVisible={true}
+        selectedBook={'Gen'}
+        selectedChapter={1}
         switchLanguage={jest.fn()}
         toggleRightSidebar={jest.fn()}
       />

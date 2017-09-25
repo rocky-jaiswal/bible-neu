@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
-import { ActionType, Dispatch, RootStateType, Verse } from '../../constants/types';
+import { ActionType, Dispatch, RootStateType } from '../../constants/types';
 import { fetchEnBible, fetchDeBible } from '../../redux/app/actions';
 
 import LoadingSpinner from '../../components/LoadingSpinner';
@@ -12,8 +12,8 @@ import './styles.css';
 
 interface Props {
   loading: boolean;
-  deBible: Verse[];
-  enBible: Verse[];
+  deBibleLoaded: boolean;
+  enBibleLoaded: boolean;
 }
 
 interface DispatchProps {
@@ -24,8 +24,8 @@ interface DispatchProps {
 const mapStateToProps = (state: RootStateType, ownProps: {}): Props => {
   return {
     loading: state.app.loading,
-    deBible: state.app.deBible,
-    enBible: state.app.enBible
+    deBibleLoaded: state.app.deBibleLoaded,
+    enBibleLoaded: state.app.enBibleLoaded
   };
 };
 
@@ -39,8 +39,12 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
 export class Root extends React.Component<Props & DispatchProps> {
 
   componentDidMount() {
-    this.props.fetchDeBible();
-    this.props.fetchEnBible();
+    if (!this.props.deBibleLoaded) {
+      this.props.fetchDeBible();
+    }
+    if (!this.props.enBibleLoaded) {
+      this.props.fetchEnBible();
+    }
   }
 
   render() {

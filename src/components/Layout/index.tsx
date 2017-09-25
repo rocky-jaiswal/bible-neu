@@ -13,6 +13,8 @@ interface Props {
   selectedLocale: LocaleEnum;
   deBookNames: string[];
   enBookNames: string[];
+  selectedBook: string;
+  selectedChapter: number;
   children: React.ReactElement<{}>;
   rightSidebarVisible: boolean;
   switchLanguage(payload: LocaleEnum): ActionType<string>;
@@ -33,6 +35,8 @@ const Layout: React.SFC<Props> = (props) => {
           deBookNames={props.deBookNames}
           enBookNames={props.enBookNames}
           rightSidebarVisible={props.rightSidebarVisible}
+          selectedBook={props.selectedBook}
+          selectedChapter={props.selectedChapter}
           switchLanguage={props.switchLanguage}
         />
       </div>

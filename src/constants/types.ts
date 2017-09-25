@@ -16,8 +16,8 @@ interface AppState {
   rightSidebarVisible: boolean;
   selectedBook: string;
   selectedChapter: number;
-  deBible: Verse[];
-  enBible: Verse[];
+  deBibleLoaded: boolean;
+  enBibleLoaded: boolean;
 }
 
 export type AppStateType = AppState;
