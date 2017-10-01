@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
 import { ActionType, Dispatch, RootStateType } from '../../constants/types';
-import { fetchEnBible, fetchDeBible } from '../../redux/app/actions';
+import { fetchDeBible, fetchEnBible, setBooks } from '../../redux/app/actions';
 
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { wrapped } from '../Wrapper';
@@ -19,6 +19,7 @@ interface Props {
 interface DispatchProps {
   fetchEnBible(): ActionType<{}>;
   fetchDeBible(): ActionType<{}>;
+  setBooks(): ActionType<void>;
 }
 
 const mapStateToProps = (state: RootStateType, ownProps: {}): Props => {
@@ -32,19 +33,21 @@ const mapStateToProps = (state: RootStateType, ownProps: {}): Props => {
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     fetchDeBible: () => dispatch(fetchDeBible()),
-    fetchEnBible: () => dispatch(fetchEnBible())
+    fetchEnBible: () => dispatch(fetchEnBible()),
+    setBooks: () => dispatch(setBooks())
   };
 };
 
 export class Root extends React.Component<Props & DispatchProps> {
 
   componentDidMount() {
-    if (!this.props.deBibleLoaded) {
-      this.props.fetchDeBible();
-    }
-    if (!this.props.enBibleLoaded) {
-      this.props.fetchEnBible();
-    }
+    // if (!this.props.deBibleLoaded) {
+    //   this.props.fetchDeBible();
+    // }
+    // if (!this.props.enBibleLoaded) {
+    //   this.props.fetchEnBible();
+    // }
+    this.props.setBooks();
   }
 
   render() {

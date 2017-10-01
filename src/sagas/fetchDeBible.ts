@@ -4,7 +4,7 @@ import { storeDEBible } from '../lib/db';
 import {
   fetchDeBibleFailed,
   fetchDeBibleInProgress,
-  fetchDeBibleSuccessful
+  fetchDeBibleSuccessful,
 } from '../redux/app/actions';
 
 import { FETCH_DE_BIBLE } from '../redux/app/constants';

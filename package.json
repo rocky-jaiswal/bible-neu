@@ -41,7 +41,7 @@
     "xml2js": "^0.4.19"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
+    "start": "PORT=8000 react-scripts-ts start",
     "lint": "node_modules/.bin/tslint -p tslint.json 'src/**/*.ts'",
     "prebuild": "postcss -u autoprefixer --no-map -r ./src/**/*.css",
     "build": "react-scripts-ts build",

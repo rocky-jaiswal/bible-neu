@@ -11,5 +11,8 @@ export const FETCH_DE_BIBLE_INFLIGHT   = 'app/App/FETCH_DE_BIBLE_INFLIGHT';
 export const FETCH_DE_BIBLE_SUCCESSFUL = 'app/App/FETCH_DE_BIBLE_SUCCESSFUL';
 export const FETCH_DE_BIBLE_ERROR      = 'app/App/FETCH_DE_BIBLE_ERROR';
 
+export const SET_BOOKS                 = 'app/App/SET_BOOKS';
+export const SET_BOOKS_WITH_RESULT     = 'app/App/SET_BOOKS_WITH_RESULT';
+
 export const SET_CURRENT_BOOK          = 'app/App/SET_CURRENT_BOOK';
 export const SET_CURRENT_CHAPTER       = 'app/App/SET_CURRENT_CHAPTER';

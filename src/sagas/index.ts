@@ -1,3 +1,5 @@
+import { setBooksWatcher } from './setBooks';
+
 import {
   fetchEnBibleWatcher
 } from './fetchEnBible';
@@ -8,5 +10,6 @@ import {
 
 export default [
   fetchEnBibleWatcher,
-  fetchDeBibleWatcher
+  fetchDeBibleWatcher,
+  setBooksWatcher
 ];

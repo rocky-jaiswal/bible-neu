@@ -8,6 +8,8 @@ import {
   FETCH_EN_BIBLE_ERROR,
   FETCH_EN_BIBLE_INFLIGHT,
   FETCH_EN_BIBLE_SUCCESSFUL,
+  SET_BOOKS,
+  SET_BOOKS_WITH_RESULT,
   SET_CURRENT_BOOK,
   SWITCH_LANGUAGE,
   TOGGLE_RIGHT_SIDEBAR,
@@ -87,5 +89,18 @@ export function setCurrentChapter(payload: number) {
   return {
     payload,
     type: SET_CURRENT_BOOK
+  };
+}
+
+export function setBooks() {
+  return {
+    type: SET_BOOKS
+  };
+}
+
+export function setBooksWithResult(payload: string[]) {
+  return {
+    payload,
+    type: SET_BOOKS_WITH_RESULT
   };
 }

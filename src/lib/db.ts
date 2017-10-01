@@ -23,6 +23,19 @@ export const storeENBible = (verses: Verse[]) => {
 export const getAllVerses = () => {
   return db
     .table('enBible')
+    .toArray();
+};
+
+export const getAllBooks = () => {
+  return db
+    .table('enBible')
     .toArray()
-    .then(d => console.log(d));
+    .then((verses) => verses.map(v => v.book))
+    .then((allBooks) => {
+
+      const obj = {};
+      allBooks.forEach(b => obj[b] = true);
+      return obj;
+    })
+    .then(obj => Object.keys(obj));
 };

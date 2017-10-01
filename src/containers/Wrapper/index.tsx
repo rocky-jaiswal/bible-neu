@@ -1,4 +1,3 @@
-import { getAllVerses } from '../../lib/db';
 import * as React from 'react';
 import { connect } from 'react-redux';
 // import * as _ from 'lodash';
@@ -13,6 +12,7 @@ import './styles.css';
 interface Props {
   locale: LocaleEnum;
   rightSidebarVisible: boolean;
+  books: string[];
   selectedBook: string;
   selectedChapter: number;
   // tslint:disable-next-line:no-any
@@ -29,6 +29,7 @@ const mapStateToProps = (state: RootStateType, ownProps: any): Props => {
   return {
     locale: state.app.locale,
     rightSidebarVisible: state.app.rightSidebarVisible,
+    books: state.app.books,
     selectedBook: state.app.selectedBook,
     selectedChapter: state.app.selectedChapter,
     match: ownProps.match
@@ -42,22 +43,16 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   };
 };
 
-const bookNames = (): void => {
-
-  getAllVerses(); // TODO: WIP
-};
-
 // tslint:disable-next-line:no-any
 export const wrapped = (WrappedComponent: any): any => {
 
   class Wrapper extends React.Component<Props & DispatchProps> {
 
     render() {
-      bookNames();
       return (
         <Layout
-          deBookNames={[]}
-          enBookNames={[]}
+          deBookNames={this.props.books}
+          enBookNames={this.props.books}
           selectedLocale={this.props.locale}
           rightSidebarVisible={this.props.rightSidebarVisible}
           selectedBook={this.props.selectedBook}

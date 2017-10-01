@@ -10,6 +10,7 @@ import {
   FETCH_EN_BIBLE_ERROR,
   FETCH_EN_BIBLE_INFLIGHT,
   FETCH_EN_BIBLE_SUCCESSFUL,
+  SET_BOOKS_WITH_RESULT,
   SET_CURRENT_BOOK,
   SET_CURRENT_CHAPTER,
   SWITCH_LANGUAGE,
@@ -21,6 +22,7 @@ const istate: AppStateType = {
   loading: false,
   locale: LocaleEnum.en,
   rightSidebarVisible: false,
+  books: [],
   selectedBook: 'Gen',
   selectedChapter: 1,
   enBibleLoaded: localStorage.getItem('enBibleLoaded') === 'true' ? true : false,
@@ -78,6 +80,10 @@ const appReducer = (state = initialState, action: ActionType<any>): AppStateType
     case SET_CURRENT_CHAPTER:
       return state
         .set('selectedChapter', action.payload);
+
+    case SET_BOOKS_WITH_RESULT:
+      return state
+        .set('books', action.payload);
 
     default:
       return state;

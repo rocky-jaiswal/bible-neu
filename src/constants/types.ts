@@ -14,6 +14,7 @@ interface AppState {
   loading: boolean;
   locale: LocaleEnum;
   rightSidebarVisible: boolean;
+  books: string[];
   selectedBook: string;
   selectedChapter: number;
   deBibleLoaded: boolean;
