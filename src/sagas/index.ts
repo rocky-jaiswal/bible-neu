@@ -1,15 +1,13 @@
+import { setAvailableChaptersWatcher } from './setAvailableChapters';
+import { fetchEnBibleWatcher } from './fetchEnBible';
+import { fetchDeBibleWatcher } from './fetchDeBible';
 import { setBooksWatcher } from './setBooks';
-
-import {
-  fetchEnBibleWatcher
-} from './fetchEnBible';
-
-import {
-  fetchDeBibleWatcher
-} from './fetchDeBible';
+import { setVersesWatcher } from './setVerses';
 
 export default [
   fetchEnBibleWatcher,
   fetchDeBibleWatcher,
-  setBooksWatcher
+  setBooksWatcher,
+  setAvailableChaptersWatcher,
+  setVersesWatcher
 ];

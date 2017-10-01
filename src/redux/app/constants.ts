@@ -1,5 +1,5 @@
-export const SWITCH_LANGUAGE       = 'app/App/SWITCH_LANGUAGE';
-export const TOGGLE_RIGHT_SIDEBAR  = 'app/App/TOGGLE_RIGHT_SIDEBAR';
+export const SWITCH_LANGUAGE           = 'app/App/SWITCH_LANGUAGE';
+export const TOGGLE_RIGHT_SIDEBAR      = 'app/App/TOGGLE_RIGHT_SIDEBAR';
 
 export const FETCH_EN_BIBLE            = 'app/App/FETCH_EN_BIBLE';
 export const FETCH_EN_BIBLE_INFLIGHT   = 'app/App/FETCH_EN_BIBLE_INFLIGHT';
@@ -16,3 +16,7 @@ export const SET_BOOKS_WITH_RESULT     = 'app/App/SET_BOOKS_WITH_RESULT';
 
 export const SET_CURRENT_BOOK          = 'app/App/SET_CURRENT_BOOK';
 export const SET_CURRENT_CHAPTER       = 'app/App/SET_CURRENT_CHAPTER';
+export const SET_CURRENT_VERSES        = 'app/App/SET_CURRENT_VERSES';
+export const SET_CURRENT_VERSES_RESULT = 'app/App/SET_CURRENT_VERSES_RESULT';
+export const SET_AVAILABLE_CHAPTERS    = 'app/App/SET_AVAILABLE_CHAPTERS';
+export const SET_AVAILABLE_CHAPTERS_RESULT = 'SET_AVAILABLE_CHAPTERS_RESULT';

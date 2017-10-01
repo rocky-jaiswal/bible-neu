@@ -13,8 +13,9 @@ interface Props {
   locale: LocaleEnum;
   rightSidebarVisible: boolean;
   books: string[];
-  selectedBook: string;
-  selectedChapter: number;
+  selectedBook?: string;
+  selectedChapter?: number;
+  availableChapters: number[];
   // tslint:disable-next-line:no-any
   match: any;
 }
@@ -32,6 +33,7 @@ const mapStateToProps = (state: RootStateType, ownProps: any): Props => {
     books: state.app.books,
     selectedBook: state.app.selectedBook,
     selectedChapter: state.app.selectedChapter,
+    availableChapters: state.app.availableChapters,
     match: ownProps.match
   };
 };
@@ -58,6 +60,7 @@ export const wrapped = (WrappedComponent: any): any => {
           selectedBook={this.props.selectedBook}
           selectedChapter={this.props.selectedChapter}
           switchLanguage={this.props.switchLanguage}
+          availableChapters={this.props.availableChapters}
           toggleRightSidebar={this.props.toggleRightSidebar}
         >
           <WrappedComponent match={this.props.match}/>

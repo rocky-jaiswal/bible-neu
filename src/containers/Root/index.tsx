@@ -41,12 +41,12 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
 export class Root extends React.Component<Props & DispatchProps> {
 
   componentDidMount() {
-    // if (!this.props.deBibleLoaded) {
-    //   this.props.fetchDeBible();
-    // }
-    // if (!this.props.enBibleLoaded) {
-    //   this.props.fetchEnBible();
-    // }
+    if (!this.props.deBibleLoaded) {
+      this.props.fetchDeBible();
+    }
+    if (!this.props.enBibleLoaded) {
+      this.props.fetchEnBible();
+    }
     this.props.setBooks();
   }
 

@@ -15,8 +15,10 @@ interface AppState {
   locale: LocaleEnum;
   rightSidebarVisible: boolean;
   books: string[];
-  selectedBook: string;
-  selectedChapter: number;
+  availableChapters: number[];
+  selectedBook?: string;
+  selectedChapter?: number;
+  selectedVerses: Verse[];
   deBibleLoaded: boolean;
   enBibleLoaded: boolean;
 }

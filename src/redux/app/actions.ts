@@ -1,4 +1,4 @@
-import { ActionType } from '../../constants/types';
+import { ActionType, Verse } from '../../constants/types';
 import {
   FETCH_DE_BIBLE,
   FETCH_DE_BIBLE_ERROR,
@@ -8,9 +8,14 @@ import {
   FETCH_EN_BIBLE_ERROR,
   FETCH_EN_BIBLE_INFLIGHT,
   FETCH_EN_BIBLE_SUCCESSFUL,
+  SET_AVAILABLE_CHAPTERS,
+  SET_AVAILABLE_CHAPTERS_RESULT,
   SET_BOOKS,
   SET_BOOKS_WITH_RESULT,
   SET_CURRENT_BOOK,
+  SET_CURRENT_CHAPTER,
+  SET_CURRENT_VERSES,
+  SET_CURRENT_VERSES_RESULT,
   SWITCH_LANGUAGE,
   TOGGLE_RIGHT_SIDEBAR,
 } from './constants';
@@ -88,7 +93,7 @@ export function setCurrentBook(payload: string) {
 export function setCurrentChapter(payload: number) {
   return {
     payload,
-    type: SET_CURRENT_BOOK
+    type: SET_CURRENT_CHAPTER
   };
 }
 
@@ -102,5 +107,31 @@ export function setBooksWithResult(payload: string[]) {
   return {
     payload,
     type: SET_BOOKS_WITH_RESULT
+  };
+}
+
+export function setCurrentVerses() {
+  return {
+    type: SET_CURRENT_VERSES
+  };
+}
+
+export function setCurrentVersesWithResult(payload: Verse[]) {
+  return {
+    payload,
+    type: SET_CURRENT_VERSES_RESULT
+  };
+}
+
+export function setAvailableChapters() {
+  return {
+    type: SET_AVAILABLE_CHAPTERS
+  };
+}
+
+export function setAvailableChaptersResult(payload: number[]) {
+  return {
+    payload,
+    type: SET_AVAILABLE_CHAPTERS_RESULT
   };
 }

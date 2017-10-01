@@ -1,3 +1,4 @@
+import { LocaleEnum } from '../constants/enums';
 import Dexie from 'dexie';
 
 import { Verse } from '../constants/types';
@@ -20,12 +21,6 @@ export const storeENBible = (verses: Verse[]) => {
   return db.table('enBible').bulkPut(verses);
 };
 
-export const getAllVerses = () => {
-  return db
-    .table('enBible')
-    .toArray();
-};
-
 export const getAllBooks = () => {
   return db
     .table('enBible')
@@ -35,7 +30,27 @@ export const getAllBooks = () => {
 
       const obj = {};
       allBooks.forEach(b => obj[b] = true);
-      return obj;
-    })
-    .then(obj => Object.keys(obj));
+      return Object.keys(obj);
+    });
+};
+
+export const getChapters = (locale: string, book: string) => {
+  return db
+    .table(locale === LocaleEnum.en ? 'enBible' : 'deBible')
+    .where({ book })
+    .toArray()
+    .then((verses) => verses.map((verse: Verse) => verse.chapter))
+    .then((allVerses) => {
+
+      const obj = {};
+      allVerses.forEach(c => obj[c] = true);
+      return Object.keys(obj);
+    });
+};
+
+export const getVerses = (locale: string, book: string, chapter: number) => {
+  return db
+    .table(locale === LocaleEnum.en ? 'enBible' : 'deBible')
+    .where({ book, chapter })
+    .toArray();
 };

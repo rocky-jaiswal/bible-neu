@@ -12,8 +12,9 @@ interface Props {
   selectedLocale: LocaleEnum;
   deBookNames: string[];
   enBookNames: string[];
-  selectedBook: string;
-  selectedChapter: number;
+  selectedBook?: string;
+  selectedChapter?: number;
+  availableChapters: number[];
   rightSidebarVisible: boolean;
   switchLanguage(payload: LocaleEnum): ActionType<string>;
 }
@@ -21,7 +22,7 @@ interface Props {
 const RightSidebar: React.SFC<Props> = (props) => {
 
   const showBooksOrChapters = () => {
-    if (props.selectedBook) {
+    if (!props.selectedBook) {
       return (
         <BookList
           selectedLocale={props.selectedLocale}
@@ -33,7 +34,7 @@ const RightSidebar: React.SFC<Props> = (props) => {
       return (
         <ChapterList
           selectedBook={props.selectedBook}
-          chapterList={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+          chapterList={props.availableChapters}
         />
       );
     }

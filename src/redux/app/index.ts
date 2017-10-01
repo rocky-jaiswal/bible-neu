@@ -10,9 +10,11 @@ import {
   FETCH_EN_BIBLE_ERROR,
   FETCH_EN_BIBLE_INFLIGHT,
   FETCH_EN_BIBLE_SUCCESSFUL,
+  SET_AVAILABLE_CHAPTERS_RESULT,
   SET_BOOKS_WITH_RESULT,
   SET_CURRENT_BOOK,
   SET_CURRENT_CHAPTER,
+  SET_CURRENT_VERSES_RESULT,
   SWITCH_LANGUAGE,
   TOGGLE_RIGHT_SIDEBAR,
 } from './constants';
@@ -23,8 +25,10 @@ const istate: AppStateType = {
   locale: LocaleEnum.en,
   rightSidebarVisible: false,
   books: [],
-  selectedBook: 'Gen',
-  selectedChapter: 1,
+  availableChapters: [1],
+  selectedBook: undefined,
+  selectedChapter: undefined,
+  selectedVerses: [],
   enBibleLoaded: localStorage.getItem('enBibleLoaded') === 'true' ? true : false,
   deBibleLoaded: localStorage.getItem('deBibleLoaded') === 'true' ? true : false
 };
@@ -84,6 +88,14 @@ const appReducer = (state = initialState, action: ActionType<any>): AppStateType
     case SET_BOOKS_WITH_RESULT:
       return state
         .set('books', action.payload);
+
+    case SET_CURRENT_VERSES_RESULT:
+      return state
+        .set('selectedVerses', action.payload);
+
+    case SET_AVAILABLE_CHAPTERS_RESULT:
+      return state
+        .set('availableChapters', action.payload);
 
     default:
       return state;
