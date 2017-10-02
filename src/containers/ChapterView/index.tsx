@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 import { ActionType, Dispatch, RootStateType, Verse } from '../../constants/types';
 import {
-  setAvailableChapters,
+  queryAvailableChapters,
   setCurrentBook,
   setCurrentChapter,
-  setCurrentVerses,
+  queryCurrentVerses,
   toggleRightSidebar,
 } from '../../redux/app/actions';
 
@@ -25,8 +25,8 @@ interface Props {
 interface DispatchProps {
   setCurrentBook(payload: string): ActionType<string>;
   setCurrentChapter(payload: number): ActionType<number>;
-  setAvailableChapters(): ActionType<void>;
-  setCurrentVerses(): ActionType<void>;
+  queryAvailableChapters(): ActionType<void>;
+  queryCurrentVerses(): ActionType<void>;
   toggleRightSidebar(): ActionType<never>;
 }
 
@@ -45,8 +45,8 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     setCurrentBook: (payload: string) => dispatch(setCurrentBook(payload)),
     setCurrentChapter: (payload: number) => dispatch(setCurrentChapter(payload)),
-    setAvailableChapters: () => dispatch(setAvailableChapters()),
-    setCurrentVerses: () => dispatch(setCurrentVerses()),
+    queryAvailableChapters: () => dispatch(queryAvailableChapters()),
+    queryCurrentVerses: () => dispatch(queryCurrentVerses()),
     toggleRightSidebar: () => dispatch(toggleRightSidebar())
   };
 };
@@ -56,8 +56,8 @@ export class ChapterView extends React.Component<Props & DispatchProps> {
   componentDidMount() {
     this.props.setCurrentBook(this.props.match.params.book);
     this.props.setCurrentChapter(this.props.match.params.chapter);
-    this.props.setAvailableChapters();
-    this.props.setCurrentVerses();
+    this.props.queryAvailableChapters();
+    this.props.queryCurrentVerses();
   }
 
   componentWillReceiveProps(nextProps: Props) {
@@ -67,8 +67,8 @@ export class ChapterView extends React.Component<Props & DispatchProps> {
       newChapter !== this.props.selectedChapter) {
         this.props.setCurrentBook(this.props.match.params.book);
         this.props.setCurrentChapter(this.props.match.params.chapter);
-        this.props.setAvailableChapters();
-        this.props.setCurrentVerses();
+        this.props.queryAvailableChapters();
+        this.props.queryCurrentVerses();
     }
   }
 

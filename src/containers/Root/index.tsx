@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
 import { ActionType, Dispatch, RootStateType } from '../../constants/types';
-import { fetchDeBible, fetchEnBible, setBooks } from '../../redux/app/actions';
+import { fetchDeBible, fetchEnBible, queryBooks } from '../../redux/app/actions';
 
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { wrapped } from '../Wrapper';
@@ -19,7 +19,7 @@ interface Props {
 interface DispatchProps {
   fetchEnBible(): ActionType<{}>;
   fetchDeBible(): ActionType<{}>;
-  setBooks(): ActionType<void>;
+  queryBooks(): ActionType<void>;
 }
 
 const mapStateToProps = (state: RootStateType, ownProps: {}): Props => {
@@ -34,7 +34,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     fetchDeBible: () => dispatch(fetchDeBible()),
     fetchEnBible: () => dispatch(fetchEnBible()),
-    setBooks: () => dispatch(setBooks())
+    queryBooks: () => dispatch(queryBooks())
   };
 };
 
@@ -47,7 +47,7 @@ export class Root extends React.Component<Props & DispatchProps> {
     if (!this.props.enBibleLoaded) {
       this.props.fetchEnBible();
     }
-    this.props.setBooks();
+    this.props.queryBooks();
   }
 
   render() {

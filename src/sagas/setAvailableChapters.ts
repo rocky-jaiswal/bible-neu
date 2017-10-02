@@ -4,7 +4,7 @@ import { RootStateType } from '../constants/types';
 import { setAvailableChaptersResult } from '../redux/app/actions';
 import { getChapters } from '../lib/db';
 
-import { SET_AVAILABLE_CHAPTERS } from '../redux/app/constants';
+import { QUERY_AVAILABLE_CHAPTERS } from '../redux/app/constants';
 
 export function* setAvailableChapters(): {} {
   try {
@@ -20,5 +20,5 @@ export function* setAvailableChapters(): {} {
 }
 
 export function* setAvailableChaptersWatcher() {
-  yield takeLatest(SET_AVAILABLE_CHAPTERS, setAvailableChapters);
+  yield takeLatest(QUERY_AVAILABLE_CHAPTERS, setAvailableChapters);
 }

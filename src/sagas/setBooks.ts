@@ -3,7 +3,7 @@ import { getAllBooks } from '../lib/db';
 
 import { setBooksWithResult } from '../redux/app/actions';
 
-import { SET_BOOKS } from '../redux/app/constants';
+import { QUERY_BOOKS } from '../redux/app/constants';
 
 export function* setBooks(): {} {
   try {
@@ -16,5 +16,5 @@ export function* setBooks(): {} {
 }
 
 export function* setBooksWatcher() {
-  yield takeLatest(SET_BOOKS, setBooks);
+  yield takeLatest(QUERY_BOOKS, setBooks);
 }

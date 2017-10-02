@@ -11,12 +11,14 @@ export const FETCH_DE_BIBLE_INFLIGHT   = 'app/App/FETCH_DE_BIBLE_INFLIGHT';
 export const FETCH_DE_BIBLE_SUCCESSFUL = 'app/App/FETCH_DE_BIBLE_SUCCESSFUL';
 export const FETCH_DE_BIBLE_ERROR      = 'app/App/FETCH_DE_BIBLE_ERROR';
 
-export const SET_BOOKS                 = 'app/App/SET_BOOKS';
+export const QUERY_BOOKS               = 'app/App/QUERY_BOOKS';
 export const SET_BOOKS_WITH_RESULT     = 'app/App/SET_BOOKS_WITH_RESULT';
 
 export const SET_CURRENT_BOOK          = 'app/App/SET_CURRENT_BOOK';
 export const SET_CURRENT_CHAPTER       = 'app/App/SET_CURRENT_CHAPTER';
-export const SET_CURRENT_VERSES        = 'app/App/SET_CURRENT_VERSES';
+
+export const QUERY_CURRENT_VERSES      = 'app/App/QUERY_CURRENT_VERSES';
 export const SET_CURRENT_VERSES_RESULT = 'app/App/SET_CURRENT_VERSES_RESULT';
-export const SET_AVAILABLE_CHAPTERS    = 'app/App/SET_AVAILABLE_CHAPTERS';
+
+export const QUERY_AVAILABLE_CHAPTERS      = 'app/App/QUERY_AVAILABLE_CHAPTERS';
 export const SET_AVAILABLE_CHAPTERS_RESULT = 'SET_AVAILABLE_CHAPTERS_RESULT';

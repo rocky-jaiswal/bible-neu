@@ -4,7 +4,7 @@ import { RootStateType } from '../constants/types';
 import { setCurrentVersesWithResult } from '../redux/app/actions';
 import { getVerses } from '../lib/db';
 
-import { SET_CURRENT_VERSES } from '../redux/app/constants';
+import { QUERY_CURRENT_VERSES } from '../redux/app/constants';
 
 export function* setVerses(): {} {
   try {
@@ -21,5 +21,5 @@ export function* setVerses(): {} {
 }
 
 export function* setVersesWatcher() {
-  yield takeLatest(SET_CURRENT_VERSES, setVerses);
+  yield takeLatest(QUERY_CURRENT_VERSES, setVerses);
 }
