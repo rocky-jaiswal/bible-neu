@@ -1,3 +1,4 @@
+import LoadingSpinner from '../LoadingSpinner';
 import * as React from 'react';
 
 import BookList from '../BookList';
@@ -10,6 +11,7 @@ import './styles.css';
 
 interface Props {
   selectedLocale: LocaleEnum;
+  sidebarLoading: boolean;
   deBookNames: string[];
   enBookNames: string[];
   selectedBook?: string;
@@ -40,10 +42,25 @@ const RightSidebar: React.SFC<Props> = (props) => {
     }
   };
 
+  const render = () => {
+    if (props.sidebarLoading) {
+      return (
+        <LoadingSpinner visible={true} />
+      );
+    } else {
+      return (
+        <div>
+          <LanguageSwitcher switchLanguage={props.switchLanguage} />
+          {showBooksOrChapters()}
+        </div>
+      );
+    }
+
+  };
+
   return (
     <div className={props.rightSidebarVisible ? 'rightSidebar' : 'hidden'}>
-      <LanguageSwitcher switchLanguage={props.switchLanguage} />
-      {showBooksOrChapters()}
+      {render()}
     </div>
   );
 };

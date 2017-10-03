@@ -13,6 +13,8 @@ import {
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { wrapped } from '../Wrapper';
 
+import './styles.css';
+
 interface Props {
   loading: boolean;
   selectedBook: string;
@@ -75,21 +77,24 @@ export class ChapterView extends React.Component<Props & DispatchProps> {
   displayVerses() {
     return this.props.selectedVerses.map((verse, idx) => {
       return (
-        <div key={idx}>
-          <span>{verse.verse} - </span>
-          <span>{verse.text}</span>
-        </div>
+        <tr key={idx}>
+          <td>{verse.verse}</td>
+          <td>{verse.text}</td>
+        </tr>
       );
     });
   }
 
   render() {
     return (
-      <div>
+      <div className="chapterContainer">
         <LoadingSpinner visible={this.props.loading} />
-        <h1>{this.props.selectedBook}</h1>
-        <h2>{this.props.selectedChapter}</h2>
-        {this.displayVerses()}
+        <h1>{this.props.selectedBook} {this.props.selectedChapter}</h1>
+        <table className="chapterDisplay">
+          <tbody>
+            {this.displayVerses()}
+          </tbody>
+        </table>
       </div>
     );
   }

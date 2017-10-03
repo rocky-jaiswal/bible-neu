@@ -12,6 +12,7 @@ export interface Verse {
 interface AppState {
   error?: string;
   loading: boolean;
+  sidebarLoading: boolean;
   locale: LocaleEnum;
   rightSidebarVisible: boolean;
   books: string[];

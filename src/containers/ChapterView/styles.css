@@ -1,0 +1,10 @@
+.chapterContainer h1 {
+  width: 100%;
+  padding: var(--vspace) calc(var(--hspace) * 2);
+  font-size: 1.2rem;
+  background: var(--main-light-blue);
+}
+
+table.chapterDisplay td {
+  padding: var(--vspace) calc(var(--hspace) * 2);
+}

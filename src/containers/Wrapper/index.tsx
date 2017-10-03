@@ -12,6 +12,7 @@ import './styles.css';
 interface Props {
   locale: LocaleEnum;
   rightSidebarVisible: boolean;
+  sidebarLoading: boolean;
   books: string[];
   selectedBook?: string;
   selectedChapter?: number;
@@ -30,6 +31,7 @@ const mapStateToProps = (state: RootStateType, ownProps: any): Props => {
   return {
     locale: state.app.locale,
     rightSidebarVisible: state.app.rightSidebarVisible,
+    sidebarLoading: state.app.sidebarLoading,
     books: state.app.books,
     selectedBook: state.app.selectedBook,
     selectedChapter: state.app.selectedChapter,
@@ -57,6 +59,7 @@ export const wrapped = (WrappedComponent: any): any => {
           enBookNames={this.props.books}
           selectedLocale={this.props.locale}
           rightSidebarVisible={this.props.rightSidebarVisible}
+          sidebarLoading={this.props.sidebarLoading}
           selectedBook={this.props.selectedBook}
           selectedChapter={this.props.selectedChapter}
           switchLanguage={this.props.switchLanguage}

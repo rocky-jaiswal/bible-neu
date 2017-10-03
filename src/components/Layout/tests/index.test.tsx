@@ -14,6 +14,7 @@ describe('<Layout />', () => {
         enBookNames={[]}
         children={<div/>}
         rightSidebarVisible={true}
+        sidebarLoading={true}
         selectedBook={'Gen'}
         selectedChapter={1}
         availableChapters={[1, 2]}

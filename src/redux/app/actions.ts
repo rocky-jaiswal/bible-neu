@@ -9,12 +9,14 @@ import {
   FETCH_EN_BIBLE_INFLIGHT,
   FETCH_EN_BIBLE_SUCCESSFUL,
   QUERY_AVAILABLE_CHAPTERS,
-  SET_AVAILABLE_CHAPTERS_RESULT,
   QUERY_BOOKS,
+  QUERY_COMPLETED,
+  QUERY_CURRENT_VERSES,
+  QUERY_IN_PROGRESS,
+  SET_AVAILABLE_CHAPTERS_RESULT,
   SET_BOOKS_WITH_RESULT,
   SET_CURRENT_BOOK,
   SET_CURRENT_CHAPTER,
-  QUERY_CURRENT_VERSES,
   SET_CURRENT_VERSES_RESULT,
   SWITCH_LANGUAGE,
   TOGGLE_RIGHT_SIDEBAR,
@@ -133,5 +135,17 @@ export function setAvailableChaptersResult(payload: number[]) {
   return {
     payload,
     type: SET_AVAILABLE_CHAPTERS_RESULT
+  };
+}
+
+export function queryInProgress() {
+  return {
+    type: QUERY_IN_PROGRESS
+  };
+}
+
+export function queryCompleted() {
+  return {
+    type: QUERY_COMPLETED
   };
 }

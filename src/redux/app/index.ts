@@ -10,6 +10,8 @@ import {
   FETCH_EN_BIBLE_ERROR,
   FETCH_EN_BIBLE_INFLIGHT,
   FETCH_EN_BIBLE_SUCCESSFUL,
+  QUERY_IN_PROGRESS,
+  QUERY_COMPLETED,
   SET_AVAILABLE_CHAPTERS_RESULT,
   SET_BOOKS_WITH_RESULT,
   SET_CURRENT_BOOK,
@@ -22,6 +24,7 @@ import {
 const istate: AppStateType = {
   error: undefined,
   loading: false,
+  sidebarLoading: false,
   locale: LocaleEnum.en,
   rightSidebarVisible: false,
   books: [],
@@ -96,6 +99,16 @@ const appReducer = (state = initialState, action: ActionType<any>): AppStateType
     case SET_AVAILABLE_CHAPTERS_RESULT:
       return state
         .set('availableChapters', action.payload);
+
+    case QUERY_IN_PROGRESS:
+      return state
+        .set('loading', true)
+        .set('sidebarLoading', true);
+
+    case QUERY_COMPLETED:
+      return state
+        .set('loading', false)
+        .set('sidebarLoading', false);
 
     default:
       return state;

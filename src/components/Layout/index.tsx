@@ -10,6 +10,7 @@ import { LocaleEnum } from '../../constants/enums';
 import './styles.css';
 
 interface Props {
+  sidebarLoading: boolean;
   selectedLocale: LocaleEnum;
   deBookNames: string[];
   enBookNames: string[];
@@ -36,6 +37,7 @@ const Layout: React.SFC<Props> = (props) => {
           deBookNames={props.deBookNames}
           enBookNames={props.enBookNames}
           rightSidebarVisible={props.rightSidebarVisible}
+          sidebarLoading={props.sidebarLoading}
           selectedBook={props.selectedBook}
           selectedChapter={props.selectedChapter}
           availableChapters={props.availableChapters}

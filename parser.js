@@ -6,9 +6,9 @@ const Xml2JS = require('xml2js');
 
 const Parser = new Xml2JS.Parser();
 
-const xmlFileTOJSON = async (filename = 'bible-en.xml') => {
+const xmlFileTOJSON = async (filename = 'bible-de') => {
   const readFile = Util.promisify(FS.readFile);
-  const fileContents = await readFile(`${__dirname}/xml/${filename}`);
+  const fileContents = await readFile(`${__dirname}/xml/${filename}.xml`);
 
   const parseString = Util.promisify(Parser.parseString);
   const result = await parseString(fileContents);
