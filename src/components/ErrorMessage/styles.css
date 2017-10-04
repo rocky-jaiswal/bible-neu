@@ -1,7 +1,7 @@
 @import '../../variables.css';
 
 .error {
-  background-color: var(--main-dark-blue);
+  background-color: var(--main-dark-alt);
   border-radius: var(--app-radius);
   color: var(--main-white);
   margin: (var(--vspace) / 2) 0;

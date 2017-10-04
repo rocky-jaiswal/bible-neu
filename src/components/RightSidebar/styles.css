@@ -38,15 +38,15 @@
   width: 100%;
 }
 
-.langButton {
+.selectedLangButton {
   width: 50%;
   height: 60px;
   color: var(--main-white);
-  background-color: var(--main-darker);
+  background-color: var(--main-dark-alt);
   border: 1px solid rgba(0,0,0,.15);
 }
 
-.selectedLangButton {
+.langButton {
   width: 50%;
   height: 60px;
   background-color: rgba(0,0,0,.02);
