@@ -6,7 +6,6 @@ import { ActionType, Dispatch, RootStateType } from '../../constants/types';
 import { SidebarView } from '../../constants/enums';
 import { fetchDeBible, fetchEnBible, queryBooks, setSidebarView } from '../../redux/app/actions';
 
-import LoadingSpinner from '../../components/LoadingSpinner';
 import { wrapped } from '../Wrapper';
 
 import './styles.css';
@@ -57,7 +56,6 @@ export class Root extends React.Component<Props & DispatchProps> {
   render() {
     return (
       <div className="rootContainer">
-        <LoadingSpinner visible={this.props.loading} />
         <h1 className="title">
           <FormattedMessage id="root.heading" />
         </h1>

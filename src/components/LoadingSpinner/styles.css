@@ -22,7 +22,7 @@
 
 .spinner {
   animation: rotate 0.75s linear infinite;
-  border: 5px solid var(--main-dark-blue);
+  border: 5px solid var(--main-dark-gray);
   border-radius: 50%;
   border-right-color: transparent;
   height: 30px;

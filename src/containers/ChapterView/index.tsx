@@ -10,7 +10,6 @@ import {
   toggleRightSidebar,
 } from '../../redux/app/actions';
 
-import LoadingSpinner from '../../components/LoadingSpinner';
 import { wrapped } from '../Wrapper';
 
 import './styles.css';
@@ -88,7 +87,6 @@ export class ChapterView extends React.Component<Props & DispatchProps> {
   render() {
     return (
       <div className="chapterContainer">
-        <LoadingSpinner visible={this.props.loading} />
         <h1>{this.props.selectedBook} {this.props.selectedChapter}</h1>
         <table className="chapterDisplay">
           <tbody>

@@ -9,6 +9,7 @@ describe('<Layout />', () => {
   test('shows the right components', () => {
     const wrapper = shallow(
       <Layout
+        loading={false}
         selectedLocale={LocaleEnum.de}
         sidebarView={SidebarView.BOOKS}
         bookNames={[]}

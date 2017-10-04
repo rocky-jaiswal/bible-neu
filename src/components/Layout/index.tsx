@@ -10,6 +10,7 @@ import { LocaleEnum, SidebarView } from '../../constants/enums';
 import './styles.css';
 
 interface Props {
+  loading: boolean;
   sidebarLoading: boolean;
   selectedLocale: LocaleEnum;
   sidebarView: SidebarView;
@@ -29,6 +30,7 @@ const Layout: React.SFC<Props> = (props) => {
   return (
     <div className="container">
       <Header
+        loading={props.sidebarLoading || props.loading}
         toggleRightSidebar={props.toggleRightSidebar}
       />
       <div className="main">

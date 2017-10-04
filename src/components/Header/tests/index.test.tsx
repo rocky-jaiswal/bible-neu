@@ -9,6 +9,7 @@ describe('<Header />', () => {
     const mock = jest.fn();
     const wrapper = shallow(
       <Header
+        loading={false}
         toggleRightSidebar={mock}
       />
     );

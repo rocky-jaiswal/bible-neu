@@ -12,7 +12,6 @@ import {
   setSidebarView
 } from '../../redux/app/actions';
 
-import LoadingSpinner from '../../components/LoadingSpinner';
 import { wrapped } from '../Wrapper';
 
 import './styles.css';
@@ -76,7 +75,6 @@ export class BookView extends React.Component<Props & DispatchProps> {
   render() {
     return (
       <div className="bookContainer">
-        <LoadingSpinner visible={this.props.loading} />
         <h1>{this.props.selectedBook}</h1>
       </div>
     );

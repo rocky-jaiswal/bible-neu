@@ -11,6 +11,7 @@ import './styles.css';
 
 interface Props {
   locale: LocaleEnum;
+  loading: boolean;
   rightSidebarVisible: boolean;
   sidebarLoading: boolean;
   sidebarView: SidebarView;
@@ -32,6 +33,7 @@ interface DispatchProps {
 const mapStateToProps = (state: RootStateType, ownProps: any): Props => {
   return {
     locale: state.app.locale,
+    loading: state.app.loading,
     rightSidebarVisible: state.app.rightSidebarVisible,
     sidebarLoading: state.app.sidebarLoading,
     sidebarView: state.app.sidebarView,
@@ -59,6 +61,7 @@ export const wrapped = (WrappedComponent: any): any => {
     render() {
       return (
         <Layout
+          loading={this.props.loading}
           bookNames={this.props.books}
           selectedLocale={this.props.locale}
           rightSidebarVisible={this.props.rightSidebarVisible}
