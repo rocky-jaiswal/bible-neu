@@ -14,10 +14,11 @@
   right: 0px;
   width: 300px;
   height: 100%;
-  background: var(--main-white);
+  background: var(--main-light);
   padding: var(--vspace) calc(var(--hspace) * 2);
   box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.33);
   overflow: scroll;
+  border-left: 2px solid var(--main-dark-gray);
   /* animation-name: slider;
   animation-duration: 0.5s; */
 }
@@ -25,4 +26,29 @@
 .hidden {
   display: none;
   visibility: hidden;
+}
+
+.sidebarViewSwitcher button {
+  width: 100%;
+  margin: var(--vspace) 0;
+}
+
+.buttonBar {
+  display: flex;
+  width: 100%;
+}
+
+.langButton {
+  width: 50%;
+  height: 60px;
+  color: var(--main-white);
+  background-color: var(--main-darker);
+  border: 1px solid rgba(0,0,0,.15);
+}
+
+.selectedLangButton {
+  width: 50%;
+  height: 60px;
+  background-color: rgba(0,0,0,.02);
+  border: 1px solid rgba(0,0,0,.15);
 }

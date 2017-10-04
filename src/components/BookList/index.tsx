@@ -1,14 +1,10 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-import { LocaleEnum } from '../../constants/enums';
-
 import './styles.css';
 
 interface Props {
-  selectedLocale: LocaleEnum;
-  deBookNames: string[];
-  enBookNames: string[];
+  bookNames: string[];
 }
 
 const BookList: React.SFC<Props> = (props) => {
@@ -25,8 +21,7 @@ const BookList: React.SFC<Props> = (props) => {
 
   return (
     <div className="chapterList">
-      {props.selectedLocale === LocaleEnum.de ?
-        books(props.deBookNames) : books(props.deBookNames)}
+      {books(props.bookNames)}
     </div>
   );
 };

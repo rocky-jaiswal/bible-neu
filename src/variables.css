@@ -1,9 +1,10 @@
 :root {
   --main-white: #FEFEFE;
-  --main-light-blue: #9FA096;
-  --main-darker-blue: #3A3230;
-  --main-dark-blue: #2E404D;
-  --main-gray: #565C88;
+  --main-light: #9FA096;
+  --main-dark: #3A3230;
+  --main-darker: #2E404D;
+  --main-darker-alt: #565C88;
+  --main-dark-gray: #696969;
   --app-radius: 2px;
   --main-font: 'Roboto', sans-serif;
   --display-font: 'Bitter', sans-serif;

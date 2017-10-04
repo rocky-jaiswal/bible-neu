@@ -1,5 +1,9 @@
 @import '../../main.css';
 
+.rootContainer {
+  padding: var(--vspace) calc(var(--hspace) * 2);
+}
+
 .title {
   color: var(--main-dark);
 }
@@ -8,3 +12,4 @@ button {
   padding: var(--vspace) var(--hspace);
   border: 1px solid var(--main-dark);
 }
+

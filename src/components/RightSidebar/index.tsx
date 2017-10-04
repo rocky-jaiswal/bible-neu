@@ -4,39 +4,39 @@ import * as React from 'react';
 import BookList from '../BookList';
 import ChapterList from '../ChapterList';
 import LanguageSwitcher from '../LanguageSwitcher';
+import SidebarViewSwitcher from '../SidebarViewSwitcher';
 
 import { ActionType } from '../../constants/types';
-import { LocaleEnum } from '../../constants/enums';
+import { LocaleEnum, SidebarView } from '../../constants/enums';
 import './styles.css';
 
 interface Props {
   selectedLocale: LocaleEnum;
   sidebarLoading: boolean;
-  deBookNames: string[];
-  enBookNames: string[];
+  sidebarView: SidebarView;
+  bookNames: string[];
   selectedBook?: string;
   selectedChapter?: number;
   availableChapters: number[];
   rightSidebarVisible: boolean;
   switchLanguage(payload: LocaleEnum): ActionType<string>;
+  switchSidebarView(): ActionType<void>;
 }
 
 const RightSidebar: React.SFC<Props> = (props) => {
 
   const showBooksOrChapters = () => {
-    if (!props.selectedBook) {
-      return (
-        <BookList
-          selectedLocale={props.selectedLocale}
-          deBookNames={props.deBookNames}
-          enBookNames={props.enBookNames}
-        />
-      );
-    } else {
+    if (props.selectedBook && props.sidebarView === SidebarView.CHAPTERS) {
       return (
         <ChapterList
           selectedBook={props.selectedBook}
           chapterList={props.availableChapters}
+        />
+      );
+    } else {
+      return (
+        <BookList
+          bookNames={props.bookNames}
         />
       );
     }
@@ -50,7 +50,13 @@ const RightSidebar: React.SFC<Props> = (props) => {
     } else {
       return (
         <div>
-          <LanguageSwitcher switchLanguage={props.switchLanguage} />
+          <LanguageSwitcher
+            selectedLocale={props.selectedLocale}
+            switchLanguage={props.switchLanguage}
+          />
+          <SidebarViewSwitcher
+            switchSidebarView={props.switchSidebarView}
+          />
           {showBooksOrChapters()}
         </div>
       );

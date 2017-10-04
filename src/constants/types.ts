@@ -1,6 +1,6 @@
 import { Dispatch as ReduxDispatch } from 'redux';
 
-import { LocaleEnum } from './enums';
+import { LocaleEnum, SidebarView } from './enums';
 
 export interface Verse {
   book: string;
@@ -15,6 +15,7 @@ interface AppState {
   sidebarLoading: boolean;
   locale: LocaleEnum;
   rightSidebarVisible: boolean;
+  sidebarView: SidebarView;
   books: string[];
   availableChapters: number[];
   selectedBook?: string;

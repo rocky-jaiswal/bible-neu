@@ -1,7 +1,7 @@
 import * as Immutable from 'seamless-immutable';
 
 import { ActionType, AppStateType } from '../../constants/types';
-import { LocaleEnum } from '../../constants/enums';
+import { LocaleEnum, SidebarView } from '../../constants/enums';
 
 import {
   FETCH_DE_BIBLE_ERROR,
@@ -10,14 +10,16 @@ import {
   FETCH_EN_BIBLE_ERROR,
   FETCH_EN_BIBLE_INFLIGHT,
   FETCH_EN_BIBLE_SUCCESSFUL,
-  QUERY_IN_PROGRESS,
   QUERY_COMPLETED,
+  QUERY_IN_PROGRESS,
   SET_AVAILABLE_CHAPTERS_RESULT,
   SET_BOOKS_WITH_RESULT,
   SET_CURRENT_BOOK,
   SET_CURRENT_CHAPTER,
   SET_CURRENT_VERSES_RESULT,
+  SET_SIDEBAR_VIEW,
   SWITCH_LANGUAGE,
+  SWITCH_SIDEBAR_VIEW,
   TOGGLE_RIGHT_SIDEBAR,
 } from './constants';
 
@@ -27,7 +29,8 @@ const istate: AppStateType = {
   sidebarLoading: false,
   locale: LocaleEnum.en,
   rightSidebarVisible: false,
-  books: [],
+  sidebarView: SidebarView.BOOKS,
+  books: JSON.parse(localStorage.getItem('bookNames') || '[]'),
   availableChapters: [1],
   selectedBook: undefined,
   selectedChapter: undefined,
@@ -89,6 +92,7 @@ const appReducer = (state = initialState, action: ActionType<any>): AppStateType
         .set('selectedChapter', action.payload);
 
     case SET_BOOKS_WITH_RESULT:
+      localStorage.setItem('bookNames', JSON.stringify(action.payload));
       return state
         .set('books', action.payload);
 
@@ -109,6 +113,14 @@ const appReducer = (state = initialState, action: ActionType<any>): AppStateType
       return state
         .set('loading', false)
         .set('sidebarLoading', false);
+
+    case SWITCH_SIDEBAR_VIEW:
+      return state
+        .set('sidebarView', state.sidebarView === SidebarView.BOOKS ? SidebarView.CHAPTERS : SidebarView.BOOKS);
+
+    case SET_SIDEBAR_VIEW:
+      return state
+        .set('sidebarView', action.payload);
 
     default:
       return state;

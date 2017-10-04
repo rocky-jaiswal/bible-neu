@@ -1,0 +1,3 @@
+.bookContainer {
+  padding: var(--vspace) calc(var(--hspace) * 2);
+}

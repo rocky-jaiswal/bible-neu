@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 import { ActionType } from '../../constants/types';
 
@@ -12,7 +13,9 @@ const Header: React.SFC<Props> = (props) => {
   return (
     <div className="header headerFixed">
       <div className="headerContainer">
-        <h1>SimpleBible</h1>
+        <h1>
+          <Link to="/">SimpleBible</Link>
+        </h1>
         <div className="logo" onClick={() => props.toggleRightSidebar()}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +27,6 @@ const Header: React.SFC<Props> = (props) => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="feather feather-menu"
           >
             <line x1="10" y1="12" x2="40" y2="12"/>
             <line x1="10" y1="24" x2="40" y2="24"/>

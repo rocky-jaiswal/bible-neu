@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-import './styles.css';
-
 interface Props {
   selectedBook: string;
   chapterList: number[];

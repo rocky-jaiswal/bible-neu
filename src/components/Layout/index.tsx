@@ -5,15 +5,15 @@ import Header from '../../components/Header';
 import RightSidebar from '../../components/RightSidebar';
 
 import { ActionType } from '../../constants/types';
-import { LocaleEnum } from '../../constants/enums';
+import { LocaleEnum, SidebarView } from '../../constants/enums';
 
 import './styles.css';
 
 interface Props {
   sidebarLoading: boolean;
   selectedLocale: LocaleEnum;
-  deBookNames: string[];
-  enBookNames: string[];
+  sidebarView: SidebarView;
+  bookNames: string[];
   selectedBook?: string;
   selectedChapter?: number;
   availableChapters: number[];
@@ -21,6 +21,7 @@ interface Props {
   rightSidebarVisible: boolean;
   switchLanguage(payload: LocaleEnum): ActionType<string>;
   toggleRightSidebar(): ActionType<string>;
+  switchSidebarView(): ActionType<void>;
 }
 
 const Layout: React.SFC<Props> = (props) => {
@@ -34,14 +35,15 @@ const Layout: React.SFC<Props> = (props) => {
         {props.children}
         <RightSidebar
           selectedLocale={props.selectedLocale}
-          deBookNames={props.deBookNames}
-          enBookNames={props.enBookNames}
+          bookNames={props.bookNames}
           rightSidebarVisible={props.rightSidebarVisible}
           sidebarLoading={props.sidebarLoading}
+          sidebarView={props.sidebarView}
           selectedBook={props.selectedBook}
           selectedChapter={props.selectedChapter}
           availableChapters={props.availableChapters}
           switchLanguage={props.switchLanguage}
+          switchSidebarView={props.switchSidebarView}
         />
       </div>
       <Footer />

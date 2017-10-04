@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { LocaleEnum } from '../../../constants/enums';
+import { LocaleEnum, SidebarView } from '../../../constants/enums';
 import Layout from '../';
 
 describe('<Layout />', () => {
@@ -10,8 +10,8 @@ describe('<Layout />', () => {
     const wrapper = shallow(
       <Layout
         selectedLocale={LocaleEnum.de}
-        deBookNames={[]}
-        enBookNames={[]}
+        sidebarView={SidebarView.BOOKS}
+        bookNames={[]}
         children={<div/>}
         rightSidebarVisible={true}
         sidebarLoading={true}
@@ -20,6 +20,7 @@ describe('<Layout />', () => {
         availableChapters={[1, 2]}
         switchLanguage={jest.fn()}
         toggleRightSidebar={jest.fn()}
+        switchSidebarView={jest.fn()}
       />
     );
     expect(wrapper.find('Header').length).toEqual(1);

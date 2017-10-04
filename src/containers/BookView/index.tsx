@@ -1,3 +1,4 @@
+import { SidebarView } from '../../constants/enums';
 import * as React from 'react';
 import { connect } from 'react-redux';
 
@@ -8,6 +9,7 @@ import {
   setCurrentChapter,
   queryCurrentVerses,
   toggleRightSidebar,
+  setSidebarView
 } from '../../redux/app/actions';
 
 import LoadingSpinner from '../../components/LoadingSpinner';
@@ -28,6 +30,7 @@ interface DispatchProps {
   queryAvailableChapters(): ActionType<void>;
   queryCurrentVerses(): ActionType<void>;
   toggleRightSidebar(): ActionType<never>;
+  setSidebarView(payload: SidebarView): ActionType<SidebarView>;
 }
 
 // tslint:disable-next-line:no-any
@@ -45,7 +48,8 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
     setCurrentChapter: (payload: number) => dispatch(setCurrentChapter(payload)),
     queryAvailableChapters: () => dispatch(queryAvailableChapters()),
     queryCurrentVerses: () => dispatch(queryCurrentVerses()),
-    toggleRightSidebar: () => dispatch(toggleRightSidebar())
+    toggleRightSidebar: () => dispatch(toggleRightSidebar()),
+    setSidebarView: (payload: SidebarView) => dispatch(setSidebarView(payload))
   };
 };
 
@@ -54,6 +58,7 @@ export class BookView extends React.Component<Props & DispatchProps> {
   componentDidMount() {
     this.props.setCurrentBook(this.props.match.params.book);
     this.props.setCurrentChapter(1);
+    this.props.setSidebarView(SidebarView.CHAPTERS);
     this.props.queryAvailableChapters();
     this.props.queryCurrentVerses();
   }
@@ -70,9 +75,9 @@ export class BookView extends React.Component<Props & DispatchProps> {
 
   render() {
     return (
-      <div>
+      <div className="bookContainer">
         <LoadingSpinner visible={this.props.loading} />
-        <h1>Book View</h1>
+        <h1>{this.props.selectedBook}</h1>
       </div>
     );
   }

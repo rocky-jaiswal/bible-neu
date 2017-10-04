@@ -3,7 +3,8 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
 import { ActionType, Dispatch, RootStateType } from '../../constants/types';
-import { fetchDeBible, fetchEnBible, queryBooks } from '../../redux/app/actions';
+import { SidebarView } from '../../constants/enums';
+import { fetchDeBible, fetchEnBible, queryBooks, setSidebarView } from '../../redux/app/actions';
 
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { wrapped } from '../Wrapper';
@@ -20,6 +21,7 @@ interface DispatchProps {
   fetchEnBible(): ActionType<{}>;
   fetchDeBible(): ActionType<{}>;
   queryBooks(): ActionType<void>;
+  setSidebarView(payload: SidebarView): ActionType<SidebarView>;
 }
 
 const mapStateToProps = (state: RootStateType, ownProps: {}): Props => {
@@ -34,7 +36,8 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     fetchDeBible: () => dispatch(fetchDeBible()),
     fetchEnBible: () => dispatch(fetchEnBible()),
-    queryBooks: () => dispatch(queryBooks())
+    queryBooks: () => dispatch(queryBooks()),
+    setSidebarView: (payload: SidebarView) => dispatch(setSidebarView(payload))
   };
 };
 
@@ -48,11 +51,12 @@ export class Root extends React.Component<Props & DispatchProps> {
       this.props.fetchEnBible();
     }
     this.props.queryBooks();
+    this.props.setSidebarView(SidebarView.BOOKS);
   }
 
   render() {
     return (
-      <div>
+      <div className="rootContainer">
         <LoadingSpinner visible={this.props.loading} />
         <h1 className="title">
           <FormattedMessage id="root.heading" />

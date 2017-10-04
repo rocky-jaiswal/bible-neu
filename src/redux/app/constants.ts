@@ -25,3 +25,6 @@ export const SET_AVAILABLE_CHAPTERS_RESULT = 'app/App/SET_AVAILABLE_CHAPTERS_RES
 
 export const QUERY_IN_PROGRESS = 'app/App/QUERY_IN_PROGRESS';
 export const QUERY_COMPLETED   = 'app/App/QUERY_COMPLETED';
+
+export const SWITCH_SIDEBAR_VIEW  = 'app/App/SWITCH_SIDEBAR_VIEW';
+export const SET_SIDEBAR_VIEW     = 'app/App/SET_SIDEBAR_VIEW';

@@ -1,4 +1,3 @@
-import { ActionType, Verse } from '../../constants/types';
 import {
   FETCH_DE_BIBLE,
   FETCH_DE_BIBLE_ERROR,
@@ -18,11 +17,14 @@ import {
   SET_CURRENT_BOOK,
   SET_CURRENT_CHAPTER,
   SET_CURRENT_VERSES_RESULT,
+  SET_SIDEBAR_VIEW,
   SWITCH_LANGUAGE,
+  SWITCH_SIDEBAR_VIEW,
   TOGGLE_RIGHT_SIDEBAR,
 } from './constants';
 
-import { LocaleEnum } from '../../constants/enums';
+import { ActionType, Verse } from '../../constants/types';
+import { LocaleEnum, SidebarView } from '../../constants/enums';
 
 export function switchLanguage(payload: LocaleEnum): ActionType<LocaleEnum> {
   return {
@@ -147,5 +149,18 @@ export function queryInProgress() {
 export function queryCompleted() {
   return {
     type: QUERY_COMPLETED
+  };
+}
+
+export function switchSidebarView() {
+  return {
+    type: SWITCH_SIDEBAR_VIEW
+  };
+}
+
+export function setSidebarView(payload: SidebarView) {
+  return {
+    payload,
+    type: SET_SIDEBAR_VIEW
   };
 }
