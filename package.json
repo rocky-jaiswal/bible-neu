@@ -44,7 +44,7 @@
     "start": "PORT=8000 react-scripts-ts start",
     "lint": "node_modules/.bin/tslint -p tslint.json 'src/**/*.ts'",
     "prebuild": "postcss -u autoprefixer --no-map -r ./src/**/*.css",
-    "build": "react-scripts-ts build",
+    "build": "APP_ENV=production NODE_ENV=production react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "test:coverage": "react-scripts-ts test --env=jsdom --coverage",
     "eject": "react-scripts-ts eject"

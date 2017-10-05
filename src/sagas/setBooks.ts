@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { getAllBooks } from '../lib/db';
 
 import { queryCompleted, queryInProgress, setBooksWithResult } from '../redux/app/actions';
+import { getAllBooks } from '../lib/db';
 
 import { QUERY_BOOKS } from '../redux/app/constants';
 

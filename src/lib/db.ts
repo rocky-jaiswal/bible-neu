@@ -24,7 +24,7 @@ export const storeENBible = (verses: Verse[]) => {
   return db
     .table('enBible')
     .clear()
-    .then(() => db.table('deBible').bulkPut(verses));
+    .then(() => db.table('enBible').bulkPut(verses));
 };
 
 export const getAllBooks = () => {
