@@ -9,8 +9,10 @@ export function* setBooks(): {} {
   try {
     yield put(queryInProgress());
     const books = yield call(getAllBooks);
-    yield put(setBooksWithResult(books));
-    yield put(queryCompleted());
+    if (books && books.length > 0) {
+      yield put(setBooksWithResult(books));
+      yield put(queryCompleted());
+    }
   } catch (err) {
     // tslint:disable-next-line:no-console
     console.error(err);

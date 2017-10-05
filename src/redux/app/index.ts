@@ -71,12 +71,10 @@ const appReducer = (state = initialState, action: ActionType<any>): AppStateType
 
     case FETCH_EN_BIBLE_ERROR:
       return state
-        .set('loading', false)
         .set('error', FETCH_EN_BIBLE_ERROR);
 
     case FETCH_DE_BIBLE_ERROR:
       return state
-        .set('loading', false)
         .set('error', FETCH_DE_BIBLE_ERROR);
 
     case TOGGLE_RIGHT_SIDEBAR:
