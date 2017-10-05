@@ -1,3 +1,13 @@
+@-webkit-keyframes slider {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 300px;
+  }
+}
+
 @keyframes slider {
   0% {
     width: 0%;
@@ -16,7 +26,8 @@
   height: 100%;
   background: var(--main-light);
   padding: var(--vspace) calc(var(--hspace) * 2);
-  box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.33);
+  -webkit-box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.33);
+          box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.33);
   overflow: scroll;
   border-left: 2px solid var(--main-dark-gray);
   /* animation-name: slider;
@@ -34,6 +45,8 @@
 }
 
 .buttonBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
