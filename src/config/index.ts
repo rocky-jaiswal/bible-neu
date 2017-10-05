@@ -1,18 +1,9 @@
-const environmentConfiguration = (environment: string) => {
-  const config = {
-    development: {
-      baseURL: `http://${window.location.hostname}:8000/json`
-    },
-    production: {
-      baseURL: `https://bible-neu.firebaseapp.com/json`
-    }
-  };
-
-  return config[environment];
-};
-
 const Config = {
-  env: environmentConfiguration(process.env.APP_ENV || 'development')
+  env: {
+    baseURL: window.location.hostname === 'localhost' ?
+      `http://${window.location.hostname}:${window.location.port}/json` :
+      `https://bible-neu.firebaseapp.com/json`
+  }
 };
 
 export default Config;
