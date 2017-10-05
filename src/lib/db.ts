@@ -14,11 +14,17 @@ db.version(1).stores({
 });
 
 export const storeDEBible = (verses: Verse[]) => {
-  return db.table('deBible').bulkPut(verses);
+  return db
+    .table('deBible')
+    .clear()
+    .then(() => db.table('deBible').bulkPut(verses));
 };
 
 export const storeENBible = (verses: Verse[]) => {
-  return db.table('enBible').bulkPut(verses);
+  return db
+    .table('enBible')
+    .clear()
+    .then(() => db.table('deBible').bulkPut(verses));
 };
 
 export const getAllBooks = () => {

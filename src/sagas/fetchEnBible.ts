@@ -1,5 +1,4 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { storeENBible } from '../lib/db';
 
 import {
   fetchEnBibleFailed,
@@ -7,6 +6,7 @@ import {
   fetchEnBibleSuccessful
 } from '../redux/app/actions';
 
+import { storeENBible } from '../lib/db';
 import { FETCH_EN_BIBLE } from '../redux/app/constants';
 
 import API from '../api';
