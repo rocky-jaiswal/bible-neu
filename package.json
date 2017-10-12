@@ -36,6 +36,7 @@
     "@types/seamless-immutable": "^7.1.1",
     "autoprefixer": "^7.1.1",
     "enzyme": "^2.9.1",
+    "firebase-tools": "^3.13.1",
     "postcss-cli": "^4.0.0",
     "react-test-renderer": "^15.6.1",
     "xml2js": "^0.4.19"
