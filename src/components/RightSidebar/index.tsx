@@ -15,8 +15,8 @@ interface Props {
   sidebarLoading: boolean;
   sidebarView: SidebarView;
   bookNames: string[];
-  selectedBook?: string;
-  selectedChapter?: number;
+  selectedBook: string | null;
+  selectedChapter: number | null;
   availableChapters: number[];
   rightSidebarVisible: boolean;
   switchLanguage(payload: LocaleEnum): ActionType<string>;

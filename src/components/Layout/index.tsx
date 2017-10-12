@@ -15,8 +15,8 @@ interface Props {
   selectedLocale: LocaleEnum;
   sidebarView: SidebarView;
   bookNames: string[];
-  selectedBook?: string;
-  selectedChapter?: number;
+  selectedBook: string | null;
+  selectedChapter: number | null;
   availableChapters: number[];
   children: React.ReactElement<{}>;
   rightSidebarVisible: boolean;

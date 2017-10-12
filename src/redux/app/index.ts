@@ -24,7 +24,7 @@ import {
 } from './constants';
 
 const istate: AppStateType = {
-  error: undefined,
+  error: null,
   loading: false,
   sidebarLoading: false,
   locale: LocaleEnum.en,
@@ -32,11 +32,9 @@ const istate: AppStateType = {
   sidebarView: SidebarView.BOOKS,
   books: JSON.parse(localStorage.getItem('bookNames') || '[]'),
   availableChapters: [1],
-  selectedBook: undefined,
-  selectedChapter: undefined,
-  selectedVerses: [],
-  enBibleLoaded: localStorage.getItem('enBibleLoaded') === 'true' ? true : false,
-  deBibleLoaded: localStorage.getItem('deBibleLoaded') === 'true' ? true : false
+  selectedBook: null,
+  selectedChapter: null,
+  selectedVerses: []
 };
 
 export const initialState = Immutable.from(istate);
@@ -58,15 +56,11 @@ const appReducer = (state = initialState, action: ActionType<any>): AppStateType
         .set('loading', true);
 
     case FETCH_EN_BIBLE_SUCCESSFUL:
-      localStorage.setItem('enBibleLoaded', 'true');
       return state
-        .set('enBibleLoaded', true)
         .set('loading', false);
 
     case FETCH_DE_BIBLE_SUCCESSFUL:
-      localStorage.setItem('deBibleLoaded', 'true');
       return state
-        .set('deBibleLoaded', true)
         .set('loading', false);
 
     case FETCH_EN_BIBLE_ERROR:

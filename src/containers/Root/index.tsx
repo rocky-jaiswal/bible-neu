@@ -12,8 +12,7 @@ import './styles.css';
 
 interface Props {
   loading: boolean;
-  deBibleLoaded: boolean;
-  enBibleLoaded: boolean;
+  bibleLoaded: boolean;
 }
 
 interface DispatchProps {
@@ -25,8 +24,7 @@ interface DispatchProps {
 const mapStateToProps = (state: RootStateType, ownProps: {}): Props => {
   return {
     loading: state.app.loading,
-    deBibleLoaded: state.app.deBibleLoaded,
-    enBibleLoaded: state.app.enBibleLoaded
+    bibleLoaded: state.app.books.length > 0
   };
 };
 
@@ -41,10 +39,8 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
 export class Root extends React.Component<Props & DispatchProps> {
 
   componentDidMount() {
-    if (!this.props.deBibleLoaded) {
+    if (!this.props.bibleLoaded) {
       this.props.fetchDeBible();
-    }
-    if (!this.props.enBibleLoaded) {
       this.props.fetchEnBible();
     }
     this.props.setSidebarView(SidebarView.BOOKS);

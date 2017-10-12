@@ -10,7 +10,7 @@ export interface Verse {
 }
 
 interface AppState {
-  error?: string;
+  error: string | null;
   loading: boolean;
   sidebarLoading: boolean;
   locale: LocaleEnum;
@@ -18,11 +18,9 @@ interface AppState {
   sidebarView: SidebarView;
   books: string[];
   availableChapters: number[];
-  selectedBook?: string;
-  selectedChapter?: number;
+  selectedBook: string | null;
+  selectedChapter: number | null;
   selectedVerses: Verse[];
-  deBibleLoaded: boolean;
-  enBibleLoaded: boolean;
 }
 
 export type AppStateType = AppState;

@@ -16,8 +16,8 @@ interface Props {
   sidebarLoading: boolean;
   sidebarView: SidebarView;
   books: string[];
-  selectedBook?: string;
-  selectedChapter?: number;
+  selectedBook: string | null;
+  selectedChapter: number | null;
   availableChapters: number[];
   // tslint:disable-next-line:no-any
   match: any;
