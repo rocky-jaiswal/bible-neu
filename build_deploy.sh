@@ -1,4 +1,4 @@
 #!/bin/sh
 
 yarn build &&
-firebase deploy --project bible-neu
+./node_modules/.bin/firebase deploy --project bible-neu

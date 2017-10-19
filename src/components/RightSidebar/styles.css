@@ -30,7 +30,6 @@
           box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.33);
   overflow-y: scroll;
   overflow-x: hidden;
-  border-left: 2px solid var(--main-dark-gray);
   /* animation-name: slider;
   animation-duration: 0.5s; */
 }
