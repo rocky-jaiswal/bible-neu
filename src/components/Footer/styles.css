@@ -6,11 +6,11 @@
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   font-size: 0.8rem;
   border-top: 1px solid var(--main-gray);
   background: var(--main-white);
   color: var(--main-gray);
-  padding: var(--vspace) var(--hspace);
+  padding: var(--vspace) calc(var(--hspace) * 2);
 }
