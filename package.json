@@ -1,66 +1,52 @@
 {
-  "name": "react-ts-starter",
-  "version": "0.1.0",
+  "name": "simple-bible",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "axios": "^0.16.2",
-    "classnames": "^2.2.5",
-    "dexie": "^2.0.0",
-    "lodash": "^4.17.4",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-intl": "^2.4.0",
-    "react-redux": "^5.0.6",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.0",
-    "react-router-redux": "^4.0.8",
-    "react-scripts-ts": "2.7.0",
-    "redux": "^3.7.2",
-    "redux-actions": "^2.2.1",
-    "redux-saga": "^0.15.6",
-    "seamless-immutable": "^7.1.2"
-  },
-  "devDependencies": {
-    "@types/enzyme": "^2.8.6",
-    "@types/jest": "^20.0.7",
-    "@types/lodash": "^4.14.74",
-    "@types/node": "^8.0.24",
-    "@types/react": "^16.0.3",
-    "@types/react-dom": "^15.5.4",
-    "@types/react-intl": "^2.3.0",
-    "@types/react-redux": "^5.0.4",
-    "@types/react-router": "^4.0.15",
-    "@types/react-router-dom": "^4.0.7",
-    "@types/react-router-redux": "^5.0.7",
-    "@types/redux-actions": "^2.2.0",
-    "@types/seamless-immutable": "^7.1.1",
-    "autoprefixer": "^7.1.1",
-    "enzyme": "^2.9.1",
-    "firebase-tools": "^3.13.1",
-    "postcss-cli": "^4.0.0",
-    "react-test-renderer": "^15.6.1",
-    "xml2js": "^0.4.19"
+    "axios": "^0.18.0",
+    "connected-react-router": "^6.0.0",
+    "dexie": "^2.0.4",
+    "normalize.css": "^8.0.0",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "react-intl": "^2.7.0",
+    "react-loadable": "^5.5.0",
+    "react-redux": "^7.0.0",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "^2.1.1",
+    "redux": "^4.0.0",
+    "redux-saga": "^1.0.0",
+    "seamless-immutable": "^7.1.0"
   },
   "scripts": {
-    "start": "PORT=8000 react-scripts-ts start",
-    "lint": "node_modules/.bin/tslint -p tslint.json 'src/**/*.ts'",
-    "prebuild": "postcss -u autoprefixer --no-map -r ./src/**/*.css",
-    "build": "APP_BACKEND_ENV=production NODE_ENV=production react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "test:coverage": "react-scripts-ts test --env=jsdom --coverage",
-    "eject": "react-scripts-ts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "jest": {
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": 80
-      }
-    }
+  "devDependencies": {
+    "@types/jest": "^24.0.0",
+    "@types/node": "^10.12.10",
+    "@types/react": "^16.7.8",
+    "@types/react-dom": "^16.0.11",
+    "@types/react-intl": "^2.3.0",
+    "@types/react-loadable": "^5.4.2",
+    "@types/react-redux": "^7.0.0",
+    "@types/react-router": "^4.4.1",
+    "@types/react-router-dom": "^4.3.1",
+    "@types/react-router-redux": "^5.0.16",
+    "@types/seamless-immutable": "^7.1.4",
+    "node-sass": "^4.10.0",
+    "redux-devtools-extension": "^2.13.7",
+    "tslint": "^5.11.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.3.0"
   },
   "browserslist": [
-    "last 3 versions"
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
   ]
 }

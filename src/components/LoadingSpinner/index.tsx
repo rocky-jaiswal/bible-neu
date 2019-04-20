@@ -6,7 +6,7 @@ interface Props {
   visible: boolean;
 }
 
-const LoadingSpinner: React.SFC<Props> = (props) => {
+const LoadingSpinner = (props: Props) => {
 
   return (
     <div className={props.visible ? 'spinnerWrapper' : 'hidden'}>

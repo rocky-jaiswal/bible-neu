@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Immutable } from 'seamless-immutable';
 import { connect } from 'react-redux';
 
 import { ActionType, Dispatch, RootStateType, Verse } from '../../constants/types';
@@ -16,11 +17,9 @@ import './styles.css';
 
 interface Props {
   loading: boolean;
-  selectedBook: string;
-  selectedChapter: number;
-  selectedVerses: Verse[];
-  // tslint:disable-next-line:no-any
-  match: any;
+  selectedBook: string | null;
+  selectedChapter: number | null;
+  selectedVerses: Immutable<Verse[]>;
 }
 
 interface DispatchProps {
@@ -32,13 +31,12 @@ interface DispatchProps {
 }
 
 // tslint:disable-next-line:no-any
-const mapStateToProps = (state: RootStateType, ownProps: any): Props => {
+const mapStateToProps = (state: RootStateType): Props => {
   return {
     loading: state.app.loading,
     selectedBook: state.app.selectedBook,
     selectedChapter: state.app.selectedChapter,
-    selectedVerses: state.app.selectedVerses,
-    ...ownProps
+    selectedVerses: state.app.selectedVerses
   };
 };
 
@@ -54,29 +52,29 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
 
 export class ChapterView extends React.Component<Props & DispatchProps> {
 
-  componentDidMount() {
-    this.props.setCurrentBook(this.props.match.params.book);
-    this.props.setCurrentChapter(this.props.match.params.chapter);
-    this.props.queryAvailableChapters();
-    this.props.queryCurrentVerses();
-  }
+  // componentDidMount() {
+  //   this.props.setCurrentBook(this.props.match.params.book);
+  //   this.props.setCurrentChapter(this.props.match.params.chapter);
+  //   this.props.queryAvailableChapters();
+  //   this.props.queryCurrentVerses();
+  // }
 
-  componentWillReceiveProps(nextProps: Props) {
-    const newBook = nextProps.match.params.book;
-    const newChapter = nextProps.match.params.chapter;
-    if (newBook !== this.props.selectedBook ||
-      newChapter !== this.props.selectedChapter) {
-        this.props.setCurrentBook(this.props.match.params.book);
-        this.props.setCurrentChapter(this.props.match.params.chapter);
-        this.props.queryAvailableChapters();
-        this.props.queryCurrentVerses();
-    }
-  }
+  // componentWillReceiveProps(nextProps: Props) {
+  //   const newBook = nextProps.match.params.book;
+  //   const newChapter = nextProps.match.params.chapter;
+  //   if (newBook !== this.props.selectedBook ||
+  //     newChapter !== this.props.selectedChapter) {
+  //       this.props.setCurrentBook(this.props.match.params.book);
+  //       this.props.setCurrentChapter(this.props.match.params.chapter);
+  //       this.props.queryAvailableChapters();
+  //       this.props.queryCurrentVerses();
+  //   }
+  // }
 
   displayVerses() {
-    return this.props.selectedVerses.map((verse, idx) => {
+    return this.props.selectedVerses.map((verse) => {
       return (
-        <tr key={idx}>
+        <tr key={verse.text}>
           <td>{verse.verse}</td>
           <td>{verse.text}</td>
         </tr>
@@ -99,4 +97,4 @@ export class ChapterView extends React.Component<Props & DispatchProps> {
 
 }
 
-export default wrapped(connect<Props, DispatchProps, {}>(mapStateToProps, mapDispatchToProps)(ChapterView));
+export default wrapped(connect(mapStateToProps, mapDispatchToProps)(ChapterView));

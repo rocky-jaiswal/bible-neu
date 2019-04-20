@@ -23,7 +23,7 @@ interface Props {
   switchSidebarView(): ActionType<void>;
 }
 
-const RightSidebar: React.SFC<Props> = (props) => {
+const RightSidebar = (props: Props) => {
 
   const showBooksOrChapters = () => {
     if (props.selectedBook && props.sidebarView === SidebarView.CHAPTERS) {

@@ -1,5 +1,3 @@
-@import '../../variables.css';
-
 .error {
   background-color: var(--main-dark-alt);
   border-radius: var(--app-radius);

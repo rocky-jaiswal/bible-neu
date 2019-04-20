@@ -7,7 +7,7 @@ interface Props {
   bookNames: string[];
 }
 
-const BookList: React.SFC<Props> = (props) => {
+const BookList = (props: Props) => {
 
   const books = (booknames: string[]) => {
     return booknames.map((b, i) => {

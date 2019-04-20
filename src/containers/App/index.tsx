@@ -10,11 +10,13 @@ export class App extends React.Component<{}, never> {
   render() {
     return (
       <LanguageProvider locale={LocaleEnum.en}>
-        <Switch>
-          {Object.keys(routes).map((route) => {
-            return <Route {...routes[route]} key={routes[route].sequence} />;
-          })}
-        </Switch>
+        {/* <React.StrictMode> */}
+          <Switch>
+            {Object.keys(routes).map((route) => {
+              return <Route {...routes[route]} key={routes[route].sequence} />;
+            })}
+          </Switch>
+        {/* </React.StrictMode> */}
       </LanguageProvider>
     );
   }

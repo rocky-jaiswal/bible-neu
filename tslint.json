@@ -25,9 +25,7 @@
         "max-line-length": [ true, 120 ],
         "member-ordering": [
             true,
-            "public-before-private",
-            "static-before-instance",
-            "variables-before-functions"
+            "public-before-private"
         ],
         "no-any": true,
         "no-arg": true,
@@ -53,7 +51,6 @@
         "no-switch-case-fall-through": true,
         "no-trailing-whitespace": false,
         "no-unused-expression": true,
-        "no-use-before-declare": true,
         "one-line": [
             true,
             "check-catch",
@@ -65,9 +62,7 @@
         "radix": true,
         "semicolon": [true, "always"],
         "switch-default": true,
-
-        "trailing-comma": false,
-
+        "trailing-comma": [false],
         "triple-equals": [ true, "allow-null-check" ],
         "typedef": [
             true,

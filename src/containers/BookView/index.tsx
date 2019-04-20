@@ -18,9 +18,7 @@ import './styles.css';
 
 interface Props {
   loading: boolean;
-  selectedBook: string;
-  // tslint:disable-next-line:no-any
-  match: any;
+  selectedBook: string | null;
 }
 
 interface DispatchProps {
@@ -33,11 +31,10 @@ interface DispatchProps {
 }
 
 // tslint:disable-next-line:no-any
-const mapStateToProps = (state: RootStateType, ownProps: any): Props => {
+const mapStateToProps = (state: RootStateType): Props => {
   return {
     loading: state.app.loading,
-    selectedBook: state.app.selectedBook,
-    ...ownProps
+    selectedBook: state.app.selectedBook
   };
 };
 
@@ -55,22 +52,22 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
 export class BookView extends React.Component<Props & DispatchProps> {
 
   componentDidMount() {
-    this.props.setCurrentBook(this.props.match.params.book);
+    // this.props.setCurrentBook(this.props.match.params.book);
     this.props.setCurrentChapter(1);
     this.props.setSidebarView(SidebarView.CHAPTERS);
     this.props.queryAvailableChapters();
     this.props.queryCurrentVerses();
   }
 
-  componentWillReceiveProps(nextProps: Props) {
-    const newBook = nextProps.match.params.book;
-    if (newBook !== this.props.selectedBook) {
-        this.props.setCurrentBook(this.props.match.params.book);
-        this.props.setCurrentChapter(1);
-        this.props.queryAvailableChapters();
-        this.props.queryCurrentVerses();
-    }
-  }
+  // componentWillReceiveProps(nextProps: Props) {
+  //   const newBook = nextProps.match.params.book;
+  //   if (newBook !== this.props.selectedBook) {
+  //       this.props.setCurrentBook(this.props.match.params.book);
+  //       this.props.setCurrentChapter(1);
+  //       this.props.queryAvailableChapters();
+  //       this.props.queryCurrentVerses();
+  //   }
+  // }
 
   render() {
     return (
@@ -82,4 +79,4 @@ export class BookView extends React.Component<Props & DispatchProps> {
 
 }
 
-export default wrapped(connect<Props, DispatchProps, {}>(mapStateToProps, mapDispatchToProps)(BookView));
+export default wrapped(connect(mapStateToProps, mapDispatchToProps)(BookView));

@@ -1,13 +1,6 @@
-@import '../../variables.css';
-
 .spinnerWrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   padding: var(--vspace) * 2;
 }
 
@@ -39,8 +32,7 @@
 }
 
 .spinner {
-  -webkit-animation: rotate 0.75s linear infinite;
-          animation: rotate 0.75s linear infinite;
+  animation: rotate 0.75s linear infinite;
   border: 5px solid var(--main-dark-gray);
   border-radius: 50%;
   border-right-color: transparent;

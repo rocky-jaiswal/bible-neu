@@ -1,5 +1,3 @@
-@import '../../main.css';
-
 .rootContainer {
   padding: var(--vspace) calc(var(--hspace) * 2);
 }

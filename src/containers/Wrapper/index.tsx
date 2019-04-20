@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-// import * as _ from 'lodash';
 
 import Layout from '../../components/Layout';
 import { ActionType, Dispatch, RootStateType } from '../../constants/types';
@@ -19,8 +18,6 @@ interface Props {
   selectedBook: string | null;
   selectedChapter: number | null;
   availableChapters: number[];
-  // tslint:disable-next-line:no-any
-  match: any;
 }
 
 interface DispatchProps {
@@ -30,18 +27,17 @@ interface DispatchProps {
 }
 
 // tslint:disable-next-line:no-any
-const mapStateToProps = (state: RootStateType, ownProps: any): Props => {
+const mapStateToProps = (state: RootStateType): Props => {
   return {
     locale: state.app.locale,
     loading: state.app.loading,
     rightSidebarVisible: state.app.rightSidebarVisible,
     sidebarLoading: state.app.sidebarLoading,
     sidebarView: state.app.sidebarView,
-    books: state.app.books,
+    books: state.app.books.asMutable(),
     selectedBook: state.app.selectedBook,
     selectedChapter: state.app.selectedChapter,
-    availableChapters: state.app.availableChapters,
-    match: ownProps.match
+    availableChapters: state.app.availableChapters.asMutable()
   };
 };
 
@@ -74,7 +70,7 @@ export const wrapped = (WrappedComponent: any): any => {
           toggleRightSidebar={this.props.toggleRightSidebar}
           switchSidebarView={this.props.switchSidebarView}
         >
-          <WrappedComponent match={this.props.match}/>
+          <WrappedComponent />
         </Layout>
       );
     }

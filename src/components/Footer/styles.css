@@ -1,16 +1,9 @@
-@import '../../variables.css';
-
 .footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
   flex-direction: row;
   font-size: 0.8rem;
   border-top: 1px solid var(--main-gray);
-  background: var(--main-white);
+  background-color: var(--main-light);
   color: var(--main-gray);
   padding: var(--vspace) calc(var(--hspace) * 2);
 }

@@ -6,7 +6,7 @@ interface Props {
   switchSidebarView(): ActionType<void>;
 }
 
-const SidebarViewSwitcher: React.SFC<Props> = (props) => {
+const SidebarViewSwitcher = (props: Props) => {
   return (
     <div className="sidebarViewSwitcher">
       <button onClick={() => props.switchSidebarView()}>

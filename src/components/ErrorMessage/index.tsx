@@ -6,7 +6,7 @@ interface Props {
   message?: string;
 }
 
-const ErrorMessage: React.SFC<Props> = (props) => {
+const ErrorMessage = (props: Props) => {
   return (
     <div className="error">
       <p>Error!! {props.message}</p>

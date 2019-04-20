@@ -1,4 +1,5 @@
-import { Dispatch as ReduxDispatch } from 'redux';
+import { Immutable } from 'seamless-immutable';
+import { Dispatch as ReduxDispatch, Action } from 'redux';
 
 import { LocaleEnum, SidebarView } from './enums';
 
@@ -9,7 +10,7 @@ export interface Verse {
   text: string;
 }
 
-interface AppState {
+export interface AppState {
   error: string | null;
   loading: boolean;
   sidebarLoading: boolean;
@@ -23,19 +24,17 @@ interface AppState {
   selectedVerses: Verse[];
 }
 
-export type AppStateType = AppState;
-
-interface RootState {
-  app: AppState;
+export interface RootState {
+  app: Immutable<AppState>;
+  // tslint:disable-next-line:no-any
+  router?: any;
 }
+
+export type ActionType<T> = {
+  type: string;
+  payload?: T;
+};
 
 export type RootStateType = RootState;
 
-interface Action<T> {
-  type: string;
-  payload?: T;
-}
-
-export type ActionType<T> = Action<T>;
-
-export type Dispatch = ReduxDispatch<RootState>;
+export type Dispatch = ReduxDispatch<Action>;

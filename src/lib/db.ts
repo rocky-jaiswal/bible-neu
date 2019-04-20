@@ -34,7 +34,7 @@ export const getAllBooks = () => {
     .then((verses) => verses.map(v => v.book))
     .then((allBooks) => {
 
-      const obj = {};
+      const obj: {[key: string]: boolean} = {};
       allBooks.forEach(b => obj[b] = true);
       return Object.keys(obj);
     });
@@ -48,7 +48,7 @@ export const getChapters = (locale: string, book: string) => {
     .then((verses) => verses.map((verse: Verse) => verse.chapter))
     .then((allVerses) => {
 
-      const obj = {};
+      const obj: {[key: string]: boolean} = {};
       allVerses.forEach(c => obj[c] = true);
       return Object.keys(obj);
     });

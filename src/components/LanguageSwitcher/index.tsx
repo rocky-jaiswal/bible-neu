@@ -8,7 +8,7 @@ interface Props {
   switchLanguage(payload: LocaleEnum): ActionType<string>;
 }
 
-const LanguageSwitcher: React.SFC<Props> = (props) => {
+const LanguageSwitcher = (props: Props) => {
   return (
     <div className="buttonBar">
       <button

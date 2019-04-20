@@ -6,7 +6,7 @@ interface Props {
   chapterList: number[];
 }
 
-const BookList: React.SFC<Props> = (props) => {
+const ChapterList = (props: Props) => {
 
   const chapters = () => {
     return props.chapterList.map((c, i) => {
@@ -25,4 +25,4 @@ const BookList: React.SFC<Props> = (props) => {
   );
 };
 
-export default BookList;
+export default ChapterList;

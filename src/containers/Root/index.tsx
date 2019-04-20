@@ -16,12 +16,12 @@ interface Props {
 }
 
 interface DispatchProps {
-  fetchEnBible(): ActionType<{}>;
-  fetchDeBible(): ActionType<{}>;
+  fetchEnBible(): void;
+  fetchDeBible(): void;
   setSidebarView(payload: SidebarView): ActionType<SidebarView>;
 }
 
-const mapStateToProps = (state: RootStateType, ownProps: {}): Props => {
+const mapStateToProps = (state: RootStateType): Props => {
   return {
     loading: state.app.loading,
     bibleLoaded: state.app.books.length > 0
@@ -58,4 +58,4 @@ export class Root extends React.Component<Props & DispatchProps> {
 
 }
 
-export default wrapped(connect<Props, DispatchProps, {}>(mapStateToProps, mapDispatchToProps)(Root));
+export default wrapped(connect(mapStateToProps, mapDispatchToProps)(Root));

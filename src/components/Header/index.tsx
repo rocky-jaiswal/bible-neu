@@ -11,12 +11,12 @@ interface Props {
   toggleRightSidebar(): ActionType<string>;
 }
 
-const Header: React.SFC<Props> = (props) => {
+const Header = (props: Props) => {
   return (
     <div className="header headerFixed">
       <div className="headerContainer">
         <h1>
-          <Link to="/">SimpleBible</Link>
+          <Link to="/">Simple Bible</Link>
         </h1>
         <LoadingSpinner visible={props.loading} />
         <div className="logo" onClick={() => props.toggleRightSidebar()}>
@@ -26,10 +26,8 @@ const Header: React.SFC<Props> = (props) => {
             height="50"
             viewBox="0 0 50 50"
             fill="none"
-            stroke="white"
+            stroke="#669269"
             strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
           >
             <line x1="10" y1="12" x2="40" y2="12"/>
             <line x1="10" y1="24" x2="40" y2="24"/>

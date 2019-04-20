@@ -25,7 +25,7 @@ interface Props {
   switchSidebarView(): ActionType<void>;
 }
 
-const Layout: React.SFC<Props> = (props) => {
+const Layout = (props: Props) => {
 
   return (
     <div className="container">

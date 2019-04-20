@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import './styles.css';
 
-const Footer: React.SFC<{}> = () => {
+const Footer = (props: {}) => {
   return (
     <div className="footer">
       Thank You ♡

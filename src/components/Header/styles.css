@@ -1,19 +1,9 @@
-@import '../../variables.css';
-
 .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: var(--main-dark);
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .33);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, .33);
+  flex-direction: column;
+  justify-content: center;
+  color: var(--main-gray);
+  background-color: var(--main-light);
 }
 
 .headerFixed {
@@ -26,19 +16,10 @@
 }
 
 .headerContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   height: 100%;
   padding: var(--vspace) calc(var(--hspace) * 2);
 }
@@ -48,17 +29,15 @@
 }
 
 .headerContainer h1 a {
-  color: var(--main-white);
+  color: var(--main-gray);
   text-decoration: none;
 }
 
 .logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 50px;
   height: 50px;
-  border: 1px solid var(--main-white);
+  border: 1px solid var(--main-dark);
   border-radius: 50%;
   cursor: pointer;
 }

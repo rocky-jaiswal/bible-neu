@@ -11,12 +11,12 @@ import { LocaleEnum } from '../constants/enums';
 addLocaleData(enLocaleData);
 addLocaleData(deLocaleData);
 
-const DEFAULT_LOCALE = LocaleEnum.en;
+const DEFAULT_LOCALE = LocaleEnum.en.toString();
 
-export const appLocales = LocaleEnum;
-
-export const formatTranslationMessages = (locale: string, messages: {}): {} => {
-  const defaultFormattedMessages = locale !== DEFAULT_LOCALE
+// tslint:disable-next-line:no-any
+export const formatTranslationMessages = (locale: string, messages: any): {} => {
+  // tslint:disable-next-line:no-any
+  const defaultFormattedMessages: any = locale !== DEFAULT_LOCALE
     ? formatTranslationMessages(DEFAULT_LOCALE, enTranslationMessages)
     : {};
   return Object.keys(messages).reduce((formattedMessages, key) => {
@@ -28,7 +28,7 @@ export const formatTranslationMessages = (locale: string, messages: {}): {} => {
   }, {});
 };
 
-export const translationMessages = {
+export const translationMessages: any = {
   en: formatTranslationMessages(LocaleEnum.en.toString(), enTranslationMessages),
   de: formatTranslationMessages(LocaleEnum.de.toString(), deTranslationMessages)
 };
