@@ -24,7 +24,7 @@
   right: 0px;
   width: 300px;
   height: 100%;
-  background: var(--main-light);
+  background: var(--main-alt);
   padding: var(--vspace) calc(var(--hspace) * 2);
   box-shadow: -2px 0px 5px 0px rgba(0,0,0,0.33);
   overflow-y: scroll;
@@ -52,7 +52,7 @@
   width: 50%;
   height: 60px;
   color: var(--main-white);
-  background-color: var(--main-dark);
+  background-color: var(--main-dark-gray);
   border: 1px solid rgba(0,0,0,.15);
 }
 

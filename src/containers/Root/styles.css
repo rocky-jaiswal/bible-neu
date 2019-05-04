@@ -3,11 +3,11 @@
 }
 
 .title {
-  color: var(--main-dark);
+  color: var(--main-dark-gray);
 }
 
 button {
   padding: var(--vspace) var(--hspace);
-  border: 1px solid var(--main-dark);
+  border: 1px solid var(--main-dark-gray);
 }
 
