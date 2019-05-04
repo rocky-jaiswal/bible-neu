@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { ActionType, Dispatch, RootStateType } from '../../constants/types';
 import { SidebarView } from '../../constants/enums';
-import { fetchDeBible, fetchEnBible, setSidebarView } from '../../redux/app/actions';
+import { fetchBooks, setSidebarView } from '../../redux/app/actions';
 
 import { wrapped } from '../Wrapper';
 
@@ -16,8 +16,7 @@ interface Props {
 }
 
 interface DispatchProps {
-  fetchEnBible(): void;
-  fetchDeBible(): void;
+  fetchBooks(): void;
   setSidebarView(payload: SidebarView): ActionType<SidebarView>;
 }
 
@@ -30,8 +29,7 @@ const mapStateToProps = (state: RootStateType): Props => {
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    fetchDeBible: () => dispatch(fetchDeBible()),
-    fetchEnBible: () => dispatch(fetchEnBible()),
+    fetchBooks: () => dispatch(fetchBooks()),
     setSidebarView: (payload: SidebarView) => dispatch(setSidebarView(payload))
   };
 };
@@ -40,8 +38,7 @@ export class Root extends React.Component<Props & DispatchProps> {
 
   componentDidMount() {
     if (!this.props.bibleLoaded) {
-      this.props.fetchDeBible();
-      this.props.fetchEnBible();
+      this.props.fetchBooks();
     }
     this.props.setSidebarView(SidebarView.BOOKS);
   }

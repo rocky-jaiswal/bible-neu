@@ -1,5 +1,5 @@
-import BookView from '../containers/BookView';
 import Root from '../containers/Root';
+import BookView from '../containers/BookView';
 import ChapterView from '../containers/ChapterView';
 
 interface RouteDefinition {

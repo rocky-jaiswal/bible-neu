@@ -1,27 +1,28 @@
-import {
-  FETCH_DE_BIBLE,
-  FETCH_DE_BIBLE_ERROR,
-  FETCH_DE_BIBLE_INFLIGHT,
-  FETCH_DE_BIBLE_SUCCESSFUL,
-  FETCH_EN_BIBLE,
-  FETCH_EN_BIBLE_ERROR,
-  FETCH_EN_BIBLE_INFLIGHT,
-  FETCH_EN_BIBLE_SUCCESSFUL,
-  QUERY_AVAILABLE_CHAPTERS,
-  QUERY_BOOKS,
-  QUERY_COMPLETED,
-  QUERY_CURRENT_VERSES,
-  QUERY_IN_PROGRESS,
-  SET_AVAILABLE_CHAPTERS_RESULT,
-  SET_BOOKS_WITH_RESULT,
-  SET_CURRENT_BOOK,
-  SET_CURRENT_CHAPTER,
-  SET_CURRENT_VERSES_RESULT,
-  SET_SIDEBAR_VIEW,
-  SWITCH_LANGUAGE,
-  SWITCH_SIDEBAR_VIEW,
-  TOGGLE_RIGHT_SIDEBAR,
-} from './constants';
+export const SWITCH_LANGUAGE           = 'app/App/SWITCH_LANGUAGE';
+export const TOGGLE_RIGHT_SIDEBAR      = 'app/App/TOGGLE_RIGHT_SIDEBAR';
+
+export const FETCH_BOOKS               = 'app/App/FETCH_BOOKS';
+export const FETCH_BOOKS_INFLIGHT      = 'app/App/FETCH_BOOKS_INFLIGHT';
+export const FETCH_BOOKS_SUCCESSFUL    = 'app/App/FETCH_BOOKS_SUCCESSFUL';
+export const FETCH_BOOKS_ERROR         = 'app/App/FETCH_BOOKS_ERROR';
+
+export const QUERY_BOOKS               = 'app/App/QUERY_BOOKS';
+export const SET_BOOKS_WITH_RESULT     = 'app/App/SET_BOOKS_WITH_RESULT';
+
+export const SET_CURRENT_BOOK          = 'app/App/SET_CURRENT_BOOK';
+export const SET_CURRENT_CHAPTER       = 'app/App/SET_CURRENT_CHAPTER';
+
+export const QUERY_CURRENT_VERSES      = 'app/App/QUERY_CURRENT_VERSES';
+export const SET_CURRENT_VERSES_RESULT = 'app/App/SET_CURRENT_VERSES_RESULT';
+
+export const QUERY_AVAILABLE_CHAPTERS      = 'app/App/QUERY_AVAILABLE_CHAPTERS';
+export const SET_AVAILABLE_CHAPTERS_RESULT = 'app/App/SET_AVAILABLE_CHAPTERS_RESULT';
+
+export const QUERY_IN_PROGRESS = 'app/App/QUERY_IN_PROGRESS';
+export const QUERY_COMPLETED   = 'app/App/QUERY_COMPLETED';
+
+export const SWITCH_SIDEBAR_VIEW  = 'app/App/SWITCH_SIDEBAR_VIEW';
+export const SET_SIDEBAR_VIEW     = 'app/App/SET_SIDEBAR_VIEW';
 
 import { ActionType, Verse } from '../../constants/types';
 import { LocaleEnum, SidebarView } from '../../constants/enums';
@@ -33,51 +34,27 @@ export function switchLanguage(payload: LocaleEnum): ActionType<LocaleEnum> {
   };
 }
 
-export function fetchEnBible() {
+export function fetchBooks() {
   return {
-    type: FETCH_EN_BIBLE
+    type: FETCH_BOOKS
   };
 }
 
-export function fetchEnBibleInProgress() {
+export function fetchBooksInProgress() {
   return {
-    type: FETCH_EN_BIBLE_INFLIGHT
+    type: FETCH_BOOKS_INFLIGHT
   };
 }
 
-export function fetchEnBibleSuccessful() {
+export function fetchBooksSuccessful() {
   return {
-    type: FETCH_EN_BIBLE_SUCCESSFUL
+    type: FETCH_BOOKS_SUCCESSFUL
   };
 }
 
-export function fetchEnBibleFailed() {
+export function fetchBooksFailed() {
   return {
-    type: FETCH_EN_BIBLE_ERROR
-  };
-}
-
-export function fetchDeBible() {
-  return {
-    type: FETCH_DE_BIBLE
-  };
-}
-
-export function fetchDeBibleInProgress() {
-  return {
-    type: FETCH_DE_BIBLE_INFLIGHT
-  };
-}
-
-export function fetchDeBibleSuccessful() {
-  return {
-    type: FETCH_DE_BIBLE_SUCCESSFUL
-  };
-}
-
-export function fetchDeBibleFailed() {
-  return {
-    type: FETCH_DE_BIBLE_ERROR
+    type: FETCH_BOOKS_ERROR
   };
 }
 

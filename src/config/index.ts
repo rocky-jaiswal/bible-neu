@@ -1,9 +1,17 @@
-const Config = {
-  env: {
-    baseURL: window.location.hostname === 'localhost' ?
-      `http://${window.location.hostname}:${window.location.port}/json` :
-      `https://bible-neu.firebaseapp.com/json`
+const environmentConfiguration = (environment: string) => {
+
+  if (environment === 'development') {
+    return {
+      baseURL: `http://${window.location.hostname}:8080/graphql`
+    };
   }
+  return {
+    baseURL: `https://api.bible-neu.live/graphql`
+  };
+};
+
+const Config = {
+  env: environmentConfiguration(process.env.REACT_APP_ENVIRONMENT || 'development')
 };
 
 export default Config;

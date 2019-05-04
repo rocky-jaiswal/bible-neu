@@ -19,6 +19,8 @@ import './styles.css';
 interface Props {
   loading: boolean;
   selectedBook: string | null;
+  // tslint:disable-next-line:no-any
+  router: any;
 }
 
 interface DispatchProps {
@@ -30,11 +32,11 @@ interface DispatchProps {
   setSidebarView(payload: SidebarView): ActionType<SidebarView>;
 }
 
-// tslint:disable-next-line:no-any
 const mapStateToProps = (state: RootStateType): Props => {
   return {
     loading: state.app.loading,
-    selectedBook: state.app.selectedBook
+    selectedBook: state.app.selectedBook,
+    router: state.router
   };
 };
 
@@ -53,6 +55,8 @@ export class BookView extends React.Component<Props & DispatchProps> {
 
   componentDidMount() {
     // this.props.setCurrentBook(this.props.match.params.book);
+    // console.log(this.props.router.location.pathname.match(/^books\/(.*)/));
+
     this.props.setCurrentChapter(1);
     this.props.setSidebarView(SidebarView.CHAPTERS);
     this.props.queryAvailableChapters();

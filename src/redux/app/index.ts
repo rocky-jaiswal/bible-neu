@@ -5,12 +5,9 @@ import { ActionType, AppState } from '../../constants/types';
 import { LocaleEnum, SidebarView } from '../../constants/enums';
 
 import {
-  FETCH_DE_BIBLE_ERROR,
-  FETCH_DE_BIBLE_INFLIGHT,
-  FETCH_DE_BIBLE_SUCCESSFUL,
-  FETCH_EN_BIBLE_ERROR,
-  FETCH_EN_BIBLE_INFLIGHT,
-  FETCH_EN_BIBLE_SUCCESSFUL,
+  FETCH_BOOKS_ERROR,
+  FETCH_BOOKS_INFLIGHT,
+  FETCH_BOOKS_SUCCESSFUL,
   QUERY_COMPLETED,
   QUERY_IN_PROGRESS,
   SET_AVAILABLE_CHAPTERS_RESULT,
@@ -22,7 +19,7 @@ import {
   SWITCH_LANGUAGE,
   SWITCH_SIDEBAR_VIEW,
   TOGGLE_RIGHT_SIDEBAR,
-} from './constants';
+} from './actions';
 
 const istate: AppState = {
   error: null,
@@ -48,29 +45,17 @@ const appReducer = (state = initialState, action: ActionType<any>): ImmutableTyp
       return state
         .set('locale', action.payload);
 
-    case FETCH_EN_BIBLE_INFLIGHT:
+    case FETCH_BOOKS_INFLIGHT:
       return state
         .set('loading', true);
 
-    case FETCH_DE_BIBLE_INFLIGHT:
-      return state
-        .set('loading', true);
-
-    case FETCH_EN_BIBLE_SUCCESSFUL:
+    case FETCH_BOOKS_SUCCESSFUL:
       return state
         .set('loading', false);
 
-    case FETCH_DE_BIBLE_SUCCESSFUL:
+    case FETCH_BOOKS_ERROR:
       return state
-        .set('loading', false);
-
-    case FETCH_EN_BIBLE_ERROR:
-      return state
-        .set('error', FETCH_EN_BIBLE_ERROR);
-
-    case FETCH_DE_BIBLE_ERROR:
-      return state
-        .set('error', FETCH_DE_BIBLE_ERROR);
+        .set('error', FETCH_BOOKS_ERROR);
 
     case TOGGLE_RIGHT_SIDEBAR:
       return state

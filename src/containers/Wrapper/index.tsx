@@ -26,7 +26,6 @@ interface DispatchProps {
   switchSidebarView(): ActionType<void>;
 }
 
-// tslint:disable-next-line:no-any
 const mapStateToProps = (state: RootStateType): Props => {
   return {
     locale: state.app.locale,

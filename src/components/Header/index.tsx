@@ -26,7 +26,7 @@ const Header = (props: Props) => {
             height="50"
             viewBox="0 0 50 50"
             fill="none"
-            stroke="#669269"
+            stroke="#1976D2"
             strokeWidth="2"
           >
             <line x1="10" y1="12" x2="40" y2="12"/>

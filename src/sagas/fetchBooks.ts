@@ -1,0 +1,29 @@
+import { call, put, takeLatest } from 'redux-saga/effects';
+
+import {
+  fetchBooksInProgress,
+  fetchBooksFailed,
+  FETCH_BOOKS,
+  fetchBooksSuccessful
+} from '../redux/app/actions';
+
+import { storeENBible } from '../lib/db';
+
+import API from '../api';
+
+export function* fetchBooks(): {} {
+  try {
+    yield put(fetchBooksInProgress());
+    const result = yield call(API.fetchBooks);
+    yield call(storeENBible, result.data);
+    yield put(fetchBooksSuccessful());
+  } catch (err) {
+    // tslint:disable-next-line:no-console
+    console.error(err);
+    yield put(fetchBooksFailed());
+  }
+}
+
+export function* fetchBooksWatcher() {
+  yield takeLatest(FETCH_BOOKS, fetchBooks);
+}
