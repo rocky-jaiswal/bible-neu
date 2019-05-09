@@ -10,11 +10,16 @@ import {
 import { storeENBible } from '../lib/db';
 
 import API from '../api';
+import QueryBuilder from '../api/queryBuilder';
 
 export function* fetchBooks(): {} {
   try {
     yield put(fetchBooksInProgress());
-    const result = yield call(API.fetchBooks, 'Gen', 1);
+    const result = yield call(
+      API.executeGQLQuery,
+      'getVersesForBookAndChapter',
+      () => QueryBuilder.getVersesForBookAndChapter('Gen', 1)
+    );
     yield call(storeENBible, result);
     yield put(fetchBooksSuccessful());
   } catch (err) {
