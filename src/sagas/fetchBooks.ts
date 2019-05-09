@@ -1,9 +1,9 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
 import {
+  FETCH_BOOKS,
   fetchBooksInProgress,
   fetchBooksFailed,
-  FETCH_BOOKS,
   fetchBooksSuccessful
 } from '../redux/app/actions';
 
@@ -14,8 +14,8 @@ import API from '../api';
 export function* fetchBooks(): {} {
   try {
     yield put(fetchBooksInProgress());
-    const result = yield call(API.fetchBooks);
-    yield call(storeENBible, result.data);
+    const result = yield call(API.fetchBooks, 'Gen', 1);
+    yield call(storeENBible, result);
     yield put(fetchBooksSuccessful());
   } catch (err) {
     // tslint:disable-next-line:no-console

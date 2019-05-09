@@ -6,7 +6,7 @@ import { Verse } from '../constants/types';
 const db = new Dexie('bible-app');
 
 db.version(1).stores({
-    enBible: '++,book,chapter,verse,text'
+  enBible: '++,book,chapter,verse,text'
 });
 
 db.version(1).stores({
@@ -24,7 +24,9 @@ export const storeENBible = (verses: Verse[]) => {
   return db
     .table('enBible')
     .clear()
-    .then(() => db.table('enBible').bulkPut(verses));
+    .then(() => db.table('enBible').bulkPut(verses))
+    // tslint:disable-next-line:no-console
+    .catch(console.error);
 };
 
 export const getAllBooks = () => {

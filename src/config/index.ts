@@ -2,11 +2,11 @@ const environmentConfiguration = (environment: string) => {
 
   if (environment === 'development') {
     return {
-      baseURL: `http://${window.location.hostname}:8080/graphql`
+      baseURL: `http://${window.location.hostname}:8080`
     };
   }
   return {
-    baseURL: `https://api.bible-neu.live/graphql`
+    baseURL: `https://api.bible-neu.live`
   };
 };
 

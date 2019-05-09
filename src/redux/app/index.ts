@@ -8,13 +8,8 @@ import {
   FETCH_BOOKS_ERROR,
   FETCH_BOOKS_INFLIGHT,
   FETCH_BOOKS_SUCCESSFUL,
-  QUERY_COMPLETED,
-  QUERY_IN_PROGRESS,
-  SET_AVAILABLE_CHAPTERS_RESULT,
-  SET_BOOKS_WITH_RESULT,
   SET_CURRENT_BOOK,
   SET_CURRENT_CHAPTER,
-  SET_CURRENT_VERSES_RESULT,
   SET_SIDEBAR_VIEW,
   SWITCH_LANGUAGE,
   SWITCH_SIDEBAR_VIEW,
@@ -68,29 +63,6 @@ const appReducer = (state = initialState, action: ActionType<any>): ImmutableTyp
     case SET_CURRENT_CHAPTER:
       return state
         .set('selectedChapter', action.payload);
-
-    case SET_BOOKS_WITH_RESULT:
-      localStorage.setItem('bookNames', JSON.stringify(action.payload));
-      return state
-        .set('books', action.payload);
-
-    case SET_CURRENT_VERSES_RESULT:
-      return state
-        .set('selectedVerses', action.payload);
-
-    case SET_AVAILABLE_CHAPTERS_RESULT:
-      return state
-        .set('availableChapters', action.payload);
-
-    case QUERY_IN_PROGRESS:
-      return state
-        .set('loading', true)
-        .set('sidebarLoading', true);
-
-    case QUERY_COMPLETED:
-      return state
-        .set('loading', false)
-        .set('sidebarLoading', false);
 
     case SWITCH_SIDEBAR_VIEW:
       return state
