@@ -1,7 +1,7 @@
 import { Immutable as ImmutableType } from 'seamless-immutable';
 import Immutable from 'seamless-immutable';
 
-import { ActionType, AppState } from '../../constants/types';
+import { AppState } from '../../constants/types';
 import { LocaleEnum, SidebarView } from '../../constants/enums';
 
 import {
@@ -33,7 +33,7 @@ const istate: AppState = {
 export const initialState = Immutable.from(istate);
 
 // tslint:disable-next-line:no-any
-const appReducer = (state = initialState, action: ActionType<any>): ImmutableType<AppState> => {
+const appReducer = (state = initialState, action: any): ImmutableType<AppState> => {
   switch (action.type) {
 
     case SWITCH_LANGUAGE:

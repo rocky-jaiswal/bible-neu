@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import Layout from '../../components/Layout';
-import { ActionType, Dispatch, RootStateType } from '../../constants/types';
+import { Dispatch, RootStateType } from '../../constants/types';
 import { LocaleEnum, SidebarView } from '../../constants/enums';
 import { switchSidebarView, switchLanguage, toggleRightSidebar } from '../../redux/app/actions';
 
@@ -21,9 +21,9 @@ interface Props {
 }
 
 interface DispatchProps {
-  switchLanguage(payload: LocaleEnum): ActionType<LocaleEnum>;
-  toggleRightSidebar(): ActionType<never>;
-  switchSidebarView(): ActionType<void>;
+  switchLanguage(payload: LocaleEnum): void;
+  toggleRightSidebar(): void;
+  switchSidebarView(): void;
 }
 
 const mapStateToProps = (state: RootStateType): Props => {
@@ -48,8 +48,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   };
 };
 
-// tslint:disable-next-line:no-any
-export const wrapped = (WrappedComponent: any): any => {
+export const wrapped = (WrappedComponent: React.ComponentClass): React.ComponentClass => {
 
   class Wrapper extends React.Component<Props & DispatchProps> {
 

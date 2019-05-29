@@ -6,7 +6,6 @@ import ChapterList from '../ChapterList';
 import LanguageSwitcher from '../LanguageSwitcher';
 import SidebarViewSwitcher from '../SidebarViewSwitcher';
 
-import { ActionType } from '../../constants/types';
 import { LocaleEnum, SidebarView } from '../../constants/enums';
 import './styles.css';
 
@@ -19,8 +18,8 @@ interface Props {
   selectedChapter: number | null;
   availableChapters: number[];
   rightSidebarVisible: boolean;
-  switchLanguage(payload: LocaleEnum): ActionType<string>;
-  switchSidebarView(): ActionType<void>;
+  switchLanguage(payload: LocaleEnum): void;
+  switchSidebarView(): void;
 }
 
 const RightSidebar = (props: Props) => {

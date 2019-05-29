@@ -1,6 +1,6 @@
 import { Immutable } from 'seamless-immutable';
 import { Dispatch as ReduxDispatch, Action } from 'redux';
-
+import { RouterState } from 'connected-react-router';
 import { LocaleEnum, SidebarView } from './enums';
 
 export interface Verse {
@@ -26,14 +26,8 @@ export interface AppState {
 
 export interface RootState {
   app: Immutable<AppState>;
-  // tslint:disable-next-line:no-any
-  router?: any;
+  router?: RouterState;
 }
-
-export type ActionType<T> = {
-  type: string;
-  payload?: T;
-};
 
 export type RootStateType = RootState;
 

@@ -1,9 +1,7 @@
 import * as React from 'react';
 
-import { ActionType } from '../../constants/types';
-
 interface Props {
-  switchSidebarView(): ActionType<void>;
+  switchSidebarView(): void;
 }
 
 const SidebarViewSwitcher = (props: Props) => {

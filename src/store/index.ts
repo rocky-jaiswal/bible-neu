@@ -1,3 +1,4 @@
+import { History } from 'history';
 import { routerMiddleware } from 'connected-react-router';
 import { applyMiddleware, createStore, Store } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -9,8 +10,7 @@ import allSagas from '../sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
-// tslint:disable-next-line:no-any
-export function configureStore(history: any): Store<RootStateType> {
+export function configureStore(history: History): Store<RootStateType> {
 
   const middlewares = [
     sagaMiddleware,

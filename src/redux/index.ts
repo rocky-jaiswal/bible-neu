@@ -1,6 +1,7 @@
-import { combineReducers, Reducer, AnyAction } from 'redux';
-import { RootStateType } from '../constants/types';
+import { History } from 'history';
+import { combineReducers, Reducer } from 'redux';
 import { connectRouter } from 'connected-react-router';
+import { RootStateType } from '../constants/types';
 
 import appReducer from './app/';
 
@@ -10,14 +11,14 @@ export const reduxInitialState: RootStateType = {
   app: appInitialState
 };
 
-// tslint:disable-next-line:no-any
-export function createReducer(history: any): Reducer<RootStateType> {
+export function createReducer(history: History): Reducer<RootStateType> {
   const reducer = combineReducers<RootStateType>({
     app: appReducer,
     router: connectRouter(history)
   });
 
-  const rootReducer = (state: RootStateType | undefined, action: AnyAction): RootStateType => {
+  // tslint:disable-next-line:no-any
+  const rootReducer = (state: RootStateType | undefined, action: any): RootStateType => {
     return reducer(state, action);
   };
 

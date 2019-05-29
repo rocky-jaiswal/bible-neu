@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
-import { ActionType, Dispatch, RootStateType } from '../../constants/types';
+import { Dispatch, RootStateType } from '../../constants/types';
 import { SidebarView } from '../../constants/enums';
 import { fetchBooks, setSidebarView } from '../../redux/app/actions';
 
@@ -17,7 +17,7 @@ interface Props {
 
 interface DispatchProps {
   fetchBooks(): void;
-  setSidebarView(payload: SidebarView): ActionType<SidebarView>;
+  setSidebarView(payload: SidebarView): void;
 }
 
 const mapStateToProps = (state: RootStateType): Props => {

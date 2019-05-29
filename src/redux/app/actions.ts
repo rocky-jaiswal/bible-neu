@@ -1,3 +1,6 @@
+import { Verse } from '../../constants/types';
+import { LocaleEnum, SidebarView } from '../../constants/enums';
+
 export const SWITCH_LANGUAGE           = 'app/App/SWITCH_LANGUAGE';
 export const TOGGLE_RIGHT_SIDEBAR      = 'app/App/TOGGLE_RIGHT_SIDEBAR';
 
@@ -24,10 +27,7 @@ export const QUERY_COMPLETED   = 'app/App/QUERY_COMPLETED';
 export const SWITCH_SIDEBAR_VIEW  = 'app/App/SWITCH_SIDEBAR_VIEW';
 export const SET_SIDEBAR_VIEW     = 'app/App/SET_SIDEBAR_VIEW';
 
-import { ActionType, Verse } from '../../constants/types';
-import { LocaleEnum, SidebarView } from '../../constants/enums';
-
-export function switchLanguage(payload: LocaleEnum): ActionType<LocaleEnum> {
+export function switchLanguage(payload: LocaleEnum) {
   return {
     payload,
     type: SWITCH_LANGUAGE

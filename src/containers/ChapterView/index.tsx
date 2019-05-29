@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Immutable } from 'seamless-immutable';
 import { connect } from 'react-redux';
 
-import { ActionType, Dispatch, RootStateType, Verse } from '../../constants/types';
+import { Dispatch, RootStateType, Verse } from '../../constants/types';
 import {
   queryAvailableChapters,
   setCurrentBook,
@@ -23,14 +23,13 @@ interface Props {
 }
 
 interface DispatchProps {
-  setCurrentBook(payload: string): ActionType<string>;
-  setCurrentChapter(payload: number): ActionType<number>;
-  queryAvailableChapters(): ActionType<void>;
-  queryCurrentVerses(): ActionType<void>;
-  toggleRightSidebar(): ActionType<never>;
+  setCurrentBook(payload: string): void;
+  setCurrentChapter(payload: number): void;
+  queryAvailableChapters(): void;
+  queryCurrentVerses(): void;
+  toggleRightSidebar(): void;
 }
 
-// tslint:disable-next-line:no-any
 const mapStateToProps = (state: RootStateType): Props => {
   return {
     loading: state.app.loading,

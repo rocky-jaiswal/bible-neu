@@ -1,8 +1,9 @@
-import { SidebarView } from '../../constants/enums';
 import * as React from 'react';
+import { RouterState } from 'connected-react-router';
 import { connect } from 'react-redux';
 
-import { ActionType, Dispatch, RootStateType } from '../../constants/types';
+import { Dispatch, RootStateType } from '../../constants/types';
+import { SidebarView } from '../../constants/enums';
 import {
   queryAvailableChapters,
   setCurrentBook,
@@ -19,24 +20,23 @@ import './styles.css';
 interface Props {
   loading: boolean;
   selectedBook: string | null;
-  // tslint:disable-next-line:no-any
-  router: any;
+  router: RouterState;
 }
 
 interface DispatchProps {
-  setCurrentBook(payload: string): ActionType<string>;
-  setCurrentChapter(payload: number): ActionType<number>;
-  queryAvailableChapters(): ActionType<void>;
-  queryCurrentVerses(): ActionType<void>;
-  toggleRightSidebar(): ActionType<never>;
-  setSidebarView(payload: SidebarView): ActionType<SidebarView>;
+  setCurrentBook(payload: string): void;
+  setCurrentChapter(payload: number): void;
+  queryAvailableChapters(): void;
+  queryCurrentVerses(): void;
+  toggleRightSidebar(): void;
+  setSidebarView(payload: SidebarView): void;
 }
 
 const mapStateToProps = (state: RootStateType): Props => {
   return {
     loading: state.app.loading,
     selectedBook: state.app.selectedBook,
-    router: state.router
+    router: state.router!
   };
 };
 

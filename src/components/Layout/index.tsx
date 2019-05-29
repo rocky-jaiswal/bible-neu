@@ -4,7 +4,6 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import RightSidebar from '../../components/RightSidebar';
 
-import { ActionType } from '../../constants/types';
 import { LocaleEnum, SidebarView } from '../../constants/enums';
 
 import './styles.css';
@@ -20,9 +19,9 @@ interface Props {
   availableChapters: number[];
   children: React.ReactElement<{}>;
   rightSidebarVisible: boolean;
-  switchLanguage(payload: LocaleEnum): ActionType<string>;
-  toggleRightSidebar(): ActionType<string>;
-  switchSidebarView(): ActionType<void>;
+  switchLanguage(payload: LocaleEnum): void;
+  toggleRightSidebar(): void;
+  switchSidebarView(): void;
 }
 
 const Layout = (props: Props) => {

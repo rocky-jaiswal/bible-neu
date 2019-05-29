@@ -6,8 +6,7 @@ interface RouteDefinition {
   sequence: number;
   exact: boolean;
   path: string;
-  // tslint:disable-next-line:no-any
-  component: any;
+  component: React.ComponentClass;
 }
 
 interface Routes {

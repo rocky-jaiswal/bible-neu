@@ -1,14 +1,13 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-import { ActionType } from '../../constants/types';
 import LoadingSpinner from '../LoadingSpinner';
 
 import './styles.css';
 
 interface Props {
   loading: boolean;
-  toggleRightSidebar(): ActionType<string>;
+  toggleRightSidebar(): void;
 }
 
 const Header = (props: Props) => {

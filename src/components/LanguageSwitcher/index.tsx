@@ -1,11 +1,10 @@
 import * as React from 'react';
 
-import { ActionType } from '../../constants/types';
 import { LocaleEnum } from '../../constants/enums';
 
 interface Props {
   selectedLocale: LocaleEnum;
-  switchLanguage(payload: LocaleEnum): ActionType<string>;
+  switchLanguage(payload: LocaleEnum): void;
 }
 
 const LanguageSwitcher = (props: Props) => {
