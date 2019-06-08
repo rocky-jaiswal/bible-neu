@@ -1,64 +1,40 @@
-import { LocaleEnum } from '../constants/enums';
 import Dexie from 'dexie';
-
-import { Verse } from '../constants/types';
 
 const db = new Dexie('bible-app');
 
 db.version(1).stores({
-  enBible: '++,book,chapter,verse,text'
+  books: '++id, name'
 });
 
 db.version(1).stores({
-  deBible: '++,book,chapter,verse,text'
+  chapters: '++id, book, chapterCount'
 });
 
-export const storeDEBible = (verses: Verse[]) => {
+export const getBooks = async () => {
   return db
-    .table('deBible')
-    .clear()
-    .then(() => db.table('deBible').bulkPut(verses));
-};
-
-export const storeENBible = (verses: Verse[]) => {
-  return db
-    .table('enBible')
-    .clear()
-    .then(() => db.table('enBible').bulkPut(verses))
-    // tslint:disable-next-line:no-console
-    .catch(console.error);
-};
-
-export const getAllBooks = () => {
-  return db
-    .table('enBible')
-    .toArray()
-    .then((verses) => verses.map(v => v.book))
-    .then((allBooks) => {
-
-      const obj: {[key: string]: boolean} = {};
-      allBooks.forEach(b => obj[b] = true);
-      return Object.keys(obj);
-    });
-};
-
-export const getChapters = (locale: string, book: string) => {
-  return db
-    .table(locale === LocaleEnum.en ? 'enBible' : 'deBible')
-    .where({ book })
-    .toArray()
-    .then((verses) => verses.map((verse: Verse) => verse.chapter))
-    .then((allVerses) => {
-
-      const obj: {[key: string]: boolean} = {};
-      allVerses.forEach(c => obj[c] = true);
-      return Object.keys(obj);
-    });
-};
-
-export const getVerses = (locale: string, book: string, chapter: number) => {
-  return db
-    .table(locale === LocaleEnum.en ? 'enBible' : 'deBible')
-    .where({ book, chapter })
+    .table('books')
     .toArray();
+};
+
+export const getChaptersForBook = async (book: string) => {
+  return db
+    .table('chapters')
+    .where({ book })
+    .toArray();
+};
+
+export const saveBooks = async (books: string[]) => {
+  return db
+    .table('books')
+    .clear()
+    .then(() => db.table('books').bulkPut(books.map(b => ({ name: b }))));
+};
+
+// tslint:disable-next-line:no-any
+export const saveChapters = async (data: any) => {
+  return db
+    .table('chapters')
+    .clear()
+    // tslint:disable-next-line:no-any
+    .then(() => db.table('chapters').bulkPut(data.map((d: any) => ({ book: d.book, chapterCount: d.chapterCount }))));
 };

@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { Immutable } from 'seamless-immutable';
 
 import Layout from '../../components/Layout';
 import { Dispatch, RootStateType } from '../../constants/types';
-import { LocaleEnum, SidebarView } from '../../constants/enums';
-import { switchSidebarView, switchLanguage, toggleRightSidebar } from '../../redux/app/actions';
+import { LocaleEnum } from '../../constants/enums';
+import { switchLanguage, toggleRightSidebar } from '../../redux/app/actions';
 
 import './styles.css';
 
@@ -13,17 +14,12 @@ interface Props {
   loading: boolean;
   rightSidebarVisible: boolean;
   sidebarLoading: boolean;
-  sidebarView: SidebarView;
-  books: string[];
-  selectedBook: string | null;
-  selectedChapter: number | null;
-  availableChapters: number[];
+  books: Immutable<string[]>;
 }
 
 interface DispatchProps {
   switchLanguage(payload: LocaleEnum): void;
   toggleRightSidebar(): void;
-  switchSidebarView(): void;
 }
 
 const mapStateToProps = (state: RootStateType): Props => {
@@ -32,19 +28,14 @@ const mapStateToProps = (state: RootStateType): Props => {
     loading: state.app.loading,
     rightSidebarVisible: state.app.rightSidebarVisible,
     sidebarLoading: state.app.sidebarLoading,
-    sidebarView: state.app.sidebarView,
-    books: state.app.books.asMutable(),
-    selectedBook: state.app.selectedBook,
-    selectedChapter: state.app.selectedChapter,
-    availableChapters: state.app.availableChapters.asMutable()
+    books: state.app.books
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     switchLanguage: (payload: LocaleEnum) => dispatch(switchLanguage(payload)),
-    toggleRightSidebar: () => dispatch(toggleRightSidebar()),
-    switchSidebarView: () => dispatch(switchSidebarView())
+    toggleRightSidebar: () => dispatch(toggleRightSidebar())
   };
 };
 
@@ -60,13 +51,8 @@ export const wrapped = (WrappedComponent: React.ComponentClass): React.Component
           selectedLocale={this.props.locale}
           rightSidebarVisible={this.props.rightSidebarVisible}
           sidebarLoading={this.props.sidebarLoading}
-          sidebarView={this.props.sidebarView}
-          selectedBook={this.props.selectedBook}
-          selectedChapter={this.props.selectedChapter}
           switchLanguage={this.props.switchLanguage}
-          availableChapters={this.props.availableChapters}
           toggleRightSidebar={this.props.toggleRightSidebar}
-          switchSidebarView={this.props.switchSidebarView}
         >
           <WrappedComponent />
         </Layout>

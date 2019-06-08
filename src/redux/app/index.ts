@@ -1,8 +1,8 @@
 import { Immutable as ImmutableType } from 'seamless-immutable';
 import Immutable from 'seamless-immutable';
 
-import { AppState } from '../../constants/types';
-import { LocaleEnum, SidebarView } from '../../constants/enums';
+import { AppState } from './types';
+import { LocaleEnum } from '../../constants/enums';
 
 import {
   FETCH_BOOKS_ERROR,
@@ -10,10 +10,11 @@ import {
   FETCH_BOOKS_SUCCESSFUL,
   SET_CURRENT_BOOK,
   SET_CURRENT_CHAPTER,
-  SET_SIDEBAR_VIEW,
   SWITCH_LANGUAGE,
-  SWITCH_SIDEBAR_VIEW,
   TOGGLE_RIGHT_SIDEBAR,
+  SET_CHAPTERS_RESULT,
+  QUERY_IN_PROGRESS,
+  QUERY_FAILED
 } from './actions';
 
 const istate: AppState = {
@@ -22,9 +23,8 @@ const istate: AppState = {
   sidebarLoading: false,
   locale: LocaleEnum.en,
   rightSidebarVisible: false,
-  sidebarView: SidebarView.BOOKS,
-  books: JSON.parse(localStorage.getItem('bookNames') || '[]'),
-  availableChapters: [1],
+  books: [],
+  availableChapters: null,
   selectedBook: null,
   selectedChapter: null,
   selectedVerses: []
@@ -42,10 +42,13 @@ const appReducer = (state = initialState, action: any): ImmutableType<AppState> 
 
     case FETCH_BOOKS_INFLIGHT:
       return state
+        .set('sidebarLoading', true)
         .set('loading', true);
 
     case FETCH_BOOKS_SUCCESSFUL:
       return state
+        .set('books', action.payload)
+        .set('sidebarLoading', false)
         .set('loading', false);
 
     case FETCH_BOOKS_ERROR:
@@ -56,21 +59,26 @@ const appReducer = (state = initialState, action: any): ImmutableType<AppState> 
       return state
         .set('rightSidebarVisible', !state.rightSidebarVisible);
 
+    case QUERY_IN_PROGRESS:
+      return state
+        .set('loading', true);
+
+    case QUERY_FAILED:
+      return state
+        .set('loading', false)
+        .set('error', QUERY_FAILED);
+
     case SET_CURRENT_BOOK:
       return state
         .set('selectedBook', action.payload);
 
+    case SET_CHAPTERS_RESULT:
+      return state
+        .set('availableChapters', action.payload);
+
     case SET_CURRENT_CHAPTER:
       return state
         .set('selectedChapter', action.payload);
-
-    case SWITCH_SIDEBAR_VIEW:
-      return state
-        .set('sidebarView', state.sidebarView === SidebarView.BOOKS ? SidebarView.CHAPTERS : SidebarView.BOOKS);
-
-    case SET_SIDEBAR_VIEW:
-      return state
-        .set('sidebarView', action.payload);
 
     default:
       return state;

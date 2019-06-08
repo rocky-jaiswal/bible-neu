@@ -6,9 +6,16 @@ export default class QueryBuilder {
     }
   }`
 
+  static getAllBooksAndChapters = () => `{
+    getAllBooksAndChapters {
+      book
+      chapterCount
+    }
+  }`
+
   static getVersesForBookAndChapter = (book: string, chapter: number) => `{
-    getVersesForBookAndChapter(book: "${book}", chapter: ${chapter}) {
-      verse
+    verses(book: "${book}", chapter: ${chapter}) {
+      verseNumber
       text
       language
     }

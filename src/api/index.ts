@@ -5,7 +5,7 @@ import config from '../config';
 const TOKEN_KEY = 'token';
 class API {
 
-  async executeGQLQuery<T>(queryName: string, queryBuilder: Function): Promise<T> {
+  async executeGQLQuery<T>(queryBuilder: Function): Promise<T> {
     const token = await API.getToken();
     const response = await axios
       .post(
@@ -14,7 +14,7 @@ class API {
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
-    return response.data.data[queryName];
+    return response.data.data;
   }
 
   private static async getToken(): Promise<String> {

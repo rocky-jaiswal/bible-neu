@@ -2,12 +2,12 @@ import * as React from 'react';
 import { Immutable } from 'seamless-immutable';
 import { connect } from 'react-redux';
 
-import { Dispatch, RootStateType, Verse } from '../../constants/types';
+import { Dispatch, RootStateType } from '../../constants/types';
+import { Verse } from '../../redux/app/types';
 import {
-  queryAvailableChapters,
+  queryChapters,
   setCurrentBook,
   setCurrentChapter,
-  queryCurrentVerses,
   toggleRightSidebar,
 } from '../../redux/app/actions';
 
@@ -25,8 +25,7 @@ interface Props {
 interface DispatchProps {
   setCurrentBook(payload: string): void;
   setCurrentChapter(payload: number): void;
-  queryAvailableChapters(): void;
-  queryCurrentVerses(): void;
+  queryChapters(): void;
   toggleRightSidebar(): void;
 }
 
@@ -43,8 +42,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     setCurrentBook: (payload: string) => dispatch(setCurrentBook(payload)),
     setCurrentChapter: (payload: number) => dispatch(setCurrentChapter(payload)),
-    queryAvailableChapters: () => dispatch(queryAvailableChapters()),
-    queryCurrentVerses: () => dispatch(queryCurrentVerses()),
+    queryChapters: () => dispatch(queryChapters()),
     toggleRightSidebar: () => dispatch(toggleRightSidebar())
   };
 };

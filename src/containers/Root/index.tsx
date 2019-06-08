@@ -3,8 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
 import { Dispatch, RootStateType } from '../../constants/types';
-import { SidebarView } from '../../constants/enums';
-import { fetchBooks, setSidebarView } from '../../redux/app/actions';
+import { fetchBooks } from '../../redux/app/actions';
 
 import { wrapped } from '../Wrapper';
 
@@ -12,35 +11,28 @@ import './styles.css';
 
 interface Props {
   loading: boolean;
-  bibleLoaded: boolean;
 }
 
 interface DispatchProps {
   fetchBooks(): void;
-  setSidebarView(payload: SidebarView): void;
 }
 
 const mapStateToProps = (state: RootStateType): Props => {
   return {
-    loading: state.app.loading,
-    bibleLoaded: state.app.books.length > 0
+    loading: state.app.loading
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    fetchBooks: () => dispatch(fetchBooks()),
-    setSidebarView: (payload: SidebarView) => dispatch(setSidebarView(payload))
+    fetchBooks: () => dispatch(fetchBooks())
   };
 };
 
 export class Root extends React.Component<Props & DispatchProps> {
 
   componentDidMount() {
-    if (!this.props.bibleLoaded) {
-      this.props.fetchBooks();
-    }
-    this.props.setSidebarView(SidebarView.BOOKS);
+    this.props.fetchBooks();
   }
 
   render() {
