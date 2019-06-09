@@ -15,12 +15,11 @@ export interface BookAndChapters {
 export interface AppState {
   error: string | null;
   loading: boolean;
-  sidebarLoading: boolean;
   locale: LocaleEnum;
   rightSidebarVisible: boolean;
   books: string[];
-  availableChapters: number | null;
   selectedBook: string | null;
+  availableChapters: number | null;
   selectedChapter: number | null;
   selectedVerses: Verse[];
 }

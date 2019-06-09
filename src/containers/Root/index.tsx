@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 
 import { Dispatch, RootStateType } from '../../constants/types';
-import { fetchBooks } from '../../redux/app/actions';
+import { fetchBooksAndChapters } from '../../redux/app/actions';
 
 import { wrapped } from '../Wrapper';
 
@@ -14,7 +14,7 @@ interface Props {
 }
 
 interface DispatchProps {
-  fetchBooks(): void;
+  fetchBooksAndChapters(): void;
 }
 
 const mapStateToProps = (state: RootStateType): Props => {
@@ -25,14 +25,14 @@ const mapStateToProps = (state: RootStateType): Props => {
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    fetchBooks: () => dispatch(fetchBooks())
+    fetchBooksAndChapters: () => dispatch(fetchBooksAndChapters())
   };
 };
 
 export class Root extends React.Component<Props & DispatchProps> {
 
   componentDidMount() {
-    this.props.fetchBooks();
+    this.props.fetchBooksAndChapters();
   }
 
   render() {

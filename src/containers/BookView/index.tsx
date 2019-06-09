@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 import { Dispatch, RootStateType } from '../../constants/types';
 import {
-  queryChapters,
-  setCurrentBook
+  setCurrentBook,
+  fetchChapters
 } from '../../redux/app/actions';
 
 import { wrapped } from '../Wrapper';
@@ -20,7 +20,7 @@ interface Props {
 
 interface DispatchProps {
   setCurrentBook(payload: string): void;
-  queryChapters(): void;
+  fetchChapters(): void;
 }
 
 const mapStateToProps = (state: RootStateType): Props => {
@@ -34,7 +34,7 @@ const mapStateToProps = (state: RootStateType): Props => {
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     setCurrentBook: (payload: string) => dispatch(setCurrentBook(payload)),
-    queryChapters: () => dispatch(queryChapters())
+    fetchChapters: () => dispatch(fetchChapters())
   };
 };
 
@@ -44,7 +44,7 @@ export class BookView extends React.Component<Props & DispatchProps> {
     const path = props.router.location.pathname;
     const book = path.split('/')[2];
     this.props.setCurrentBook(book);
-    this.props.queryChapters();
+    this.props.fetchChapters();
   }
 
   componentDidMount() {

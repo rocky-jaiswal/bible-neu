@@ -5,8 +5,6 @@ import { AppState } from './types';
 import { LocaleEnum } from '../../constants/enums';
 
 import {
-  FETCH_BOOKS_ERROR,
-  FETCH_BOOKS_INFLIGHT,
   FETCH_BOOKS_SUCCESSFUL,
   SET_CURRENT_BOOK,
   SET_CURRENT_CHAPTER,
@@ -14,18 +12,18 @@ import {
   TOGGLE_RIGHT_SIDEBAR,
   SET_CHAPTERS_RESULT,
   QUERY_IN_PROGRESS,
-  QUERY_FAILED
+  QUERY_FAILED,
+  QUERY_SUCCESSFUL
 } from './actions';
 
 const istate: AppState = {
   error: null,
   loading: false,
-  sidebarLoading: false,
   locale: LocaleEnum.en,
   rightSidebarVisible: false,
   books: [],
-  availableChapters: null,
   selectedBook: null,
+  availableChapters: null,
   selectedChapter: null,
   selectedVerses: []
 };
@@ -40,25 +38,6 @@ const appReducer = (state = initialState, action: any): ImmutableType<AppState> 
       return state
         .set('locale', action.payload);
 
-    case FETCH_BOOKS_INFLIGHT:
-      return state
-        .set('sidebarLoading', true)
-        .set('loading', true);
-
-    case FETCH_BOOKS_SUCCESSFUL:
-      return state
-        .set('books', action.payload)
-        .set('sidebarLoading', false)
-        .set('loading', false);
-
-    case FETCH_BOOKS_ERROR:
-      return state
-        .set('error', FETCH_BOOKS_ERROR);
-
-    case TOGGLE_RIGHT_SIDEBAR:
-      return state
-        .set('rightSidebarVisible', !state.rightSidebarVisible);
-
     case QUERY_IN_PROGRESS:
       return state
         .set('loading', true);
@@ -67,6 +46,19 @@ const appReducer = (state = initialState, action: any): ImmutableType<AppState> 
       return state
         .set('loading', false)
         .set('error', QUERY_FAILED);
+
+    case QUERY_SUCCESSFUL:
+        return state
+        .set('loading', false)
+        .set('error', null);
+
+    case TOGGLE_RIGHT_SIDEBAR:
+      return state
+        .set('rightSidebarVisible', !state.rightSidebarVisible);
+
+    case FETCH_BOOKS_SUCCESSFUL:
+      return state
+        .set('books', action.payload);
 
     case SET_CURRENT_BOOK:
       return state

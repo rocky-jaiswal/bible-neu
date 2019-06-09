@@ -1,7 +1,7 @@
-import { fetchBooksWatcher } from './fetchBooks';
-import { queryChaptersWatcher } from './queryChapters';
+import { fetchBooksWatcher } from './fetchBooksAndChapters';
+import { fetchChaptersWatcher } from './fetchChapters';
 
 export default [
   fetchBooksWatcher,
-  queryChaptersWatcher
+  fetchChaptersWatcher
 ];

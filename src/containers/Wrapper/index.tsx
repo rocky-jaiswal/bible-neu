@@ -13,7 +13,6 @@ interface Props {
   locale: LocaleEnum;
   loading: boolean;
   rightSidebarVisible: boolean;
-  sidebarLoading: boolean;
   books: Immutable<string[]>;
 }
 
@@ -27,7 +26,6 @@ const mapStateToProps = (state: RootStateType): Props => {
     locale: state.app.locale,
     loading: state.app.loading,
     rightSidebarVisible: state.app.rightSidebarVisible,
-    sidebarLoading: state.app.sidebarLoading,
     books: state.app.books
   };
 };
@@ -50,7 +48,6 @@ export const wrapped = (WrappedComponent: React.ComponentClass): React.Component
           bookNames={this.props.books}
           selectedLocale={this.props.locale}
           rightSidebarVisible={this.props.rightSidebarVisible}
-          sidebarLoading={this.props.sidebarLoading}
           switchLanguage={this.props.switchLanguage}
           toggleRightSidebar={this.props.toggleRightSidebar}
         >

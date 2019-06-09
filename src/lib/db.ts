@@ -1,4 +1,5 @@
 import Dexie from 'dexie';
+import { BookAndChapters } from '../redux/app/types';
 
 const db = new Dexie('bible-app');
 
@@ -30,11 +31,12 @@ export const saveBooks = async (books: string[]) => {
     .then(() => db.table('books').bulkPut(books.map(b => ({ name: b }))));
 };
 
-// tslint:disable-next-line:no-any
-export const saveChapters = async (data: any) => {
+export const saveChapters = async (data: BookAndChapters[]) => {
   return db
     .table('chapters')
     .clear()
-    // tslint:disable-next-line:no-any
-    .then(() => db.table('chapters').bulkPut(data.map((d: any) => ({ book: d.book, chapterCount: d.chapterCount }))));
+    .then(() => db
+      .table('chapters')
+      // tslint:disable-next-line:no-any
+      .bulkPut(data.map((d: any) => ({ book: d.book, chapterCount: d.chapterCount }))));
 };

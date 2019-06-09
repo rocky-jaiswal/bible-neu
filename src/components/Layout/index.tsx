@@ -11,7 +11,6 @@ import './styles.css';
 
 interface Props {
   loading: boolean;
-  sidebarLoading: boolean;
   selectedLocale: LocaleEnum;
   bookNames: Immutable<string[]>;
   children: React.ReactElement<{}>;
@@ -25,7 +24,7 @@ const Layout = (props: Props) => {
   return (
     <div className="container">
       <Header
-        loading={props.sidebarLoading || props.loading}
+        loading={props.loading}
         toggleRightSidebar={props.toggleRightSidebar}
       />
       <div className="main">
@@ -34,7 +33,7 @@ const Layout = (props: Props) => {
           selectedLocale={props.selectedLocale}
           bookNames={props.bookNames}
           rightSidebarVisible={props.rightSidebarVisible}
-          sidebarLoading={props.sidebarLoading}
+          sidebarLoading={props.loading}
           switchLanguage={props.switchLanguage}
         />
       </div>

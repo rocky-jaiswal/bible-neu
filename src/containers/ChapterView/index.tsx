@@ -5,10 +5,8 @@ import { connect } from 'react-redux';
 import { Dispatch, RootStateType } from '../../constants/types';
 import { Verse } from '../../redux/app/types';
 import {
-  queryChapters,
   setCurrentBook,
-  setCurrentChapter,
-  toggleRightSidebar,
+  setCurrentChapter
 } from '../../redux/app/actions';
 
 import { wrapped } from '../Wrapper';
@@ -25,8 +23,6 @@ interface Props {
 interface DispatchProps {
   setCurrentBook(payload: string): void;
   setCurrentChapter(payload: number): void;
-  queryChapters(): void;
-  toggleRightSidebar(): void;
 }
 
 const mapStateToProps = (state: RootStateType): Props => {
@@ -41,9 +37,7 @@ const mapStateToProps = (state: RootStateType): Props => {
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     setCurrentBook: (payload: string) => dispatch(setCurrentBook(payload)),
-    setCurrentChapter: (payload: number) => dispatch(setCurrentChapter(payload)),
-    queryChapters: () => dispatch(queryChapters()),
-    toggleRightSidebar: () => dispatch(toggleRightSidebar())
+    setCurrentChapter: (payload: number) => dispatch(setCurrentChapter(payload))
   };
 };
 

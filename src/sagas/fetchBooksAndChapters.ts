@@ -1,10 +1,11 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
 import {
-  FETCH_BOOKS,
-  fetchBooksInProgress,
-  fetchBooksFailed,
-  fetchBooksSuccessful
+  FETCH_BOOKS_AND_CHAPTERS,
+  fetchBooksSuccessful,
+  queryInProgress,
+  querySuccessful,
+  queryFailed
 } from '../redux/app/actions';
 
 import API from '../api';
@@ -18,8 +19,7 @@ function* getBookAndChaptersFromAPI() {
     () => QueryBuilder.getAllBooksAndChapters()
   );
 
-  const booksFromAPI = result.map((r: BookAndChapters) => r.book);
-  yield call(saveBooks, booksFromAPI);
+  yield call(saveBooks, result.map((r: BookAndChapters) => r.book));
   yield call(saveChapters, result);
 }
 
@@ -38,16 +38,17 @@ export function* getFromDBOrAPI(selectedBook: string = 'Gen') {
 
 export function* fetchBooks() {
   try {
-    yield put(fetchBooksInProgress());
+    yield put(queryInProgress());
     const result = yield call(getFromDBOrAPI);
     yield put(fetchBooksSuccessful(result.books));
+    yield put(querySuccessful());
   } catch (err) {
     // tslint:disable-next-line:no-console
     console.error(err);
-    yield put(fetchBooksFailed());
+    yield put(queryFailed());
   }
 }
 
 export function* fetchBooksWatcher() {
-  yield takeLatest(FETCH_BOOKS, fetchBooks);
+  yield takeLatest(FETCH_BOOKS_AND_CHAPTERS, fetchBooks);
 }
