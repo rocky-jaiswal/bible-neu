@@ -13,13 +13,14 @@ import {
   SET_CHAPTERS_RESULT,
   QUERY_IN_PROGRESS,
   QUERY_FAILED,
-  QUERY_SUCCESSFUL
+  QUERY_SUCCESSFUL,
+  SET_VERSES_RESULT
 } from './actions';
 
 const istate: AppState = {
   error: null,
   loading: false,
-  locale: LocaleEnum.en,
+  locale: LocaleEnum.EN,
   rightSidebarVisible: false,
   books: [],
   selectedBook: null,
@@ -71,6 +72,10 @@ const appReducer = (state = initialState, action: any): ImmutableType<AppState> 
     case SET_CURRENT_CHAPTER:
       return state
         .set('selectedChapter', action.payload);
+
+    case SET_VERSES_RESULT:
+      return state
+        .set('selectedVerses', action.payload);
 
     default:
       return state;

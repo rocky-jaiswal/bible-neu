@@ -9,7 +9,7 @@ export class App extends React.Component<{}, never> {
 
   render() {
     return (
-      <LanguageProvider locale={LocaleEnum.en}>
+      <LanguageProvider locale={LocaleEnum.EN}>
         {/* <React.StrictMode> */}
           <Switch>
             {Object.keys(routes).map((route) => {

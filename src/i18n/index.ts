@@ -11,7 +11,7 @@ import { LocaleEnum } from '../constants/enums';
 addLocaleData(enLocaleData);
 addLocaleData(deLocaleData);
 
-const DEFAULT_LOCALE = LocaleEnum.en.toString();
+const DEFAULT_LOCALE = LocaleEnum.EN.toString().toLowerCase();
 
 // tslint:disable-next-line:no-any
 export const formatTranslationMessages = (locale: string, messages: any): {} => {
@@ -28,7 +28,8 @@ export const formatTranslationMessages = (locale: string, messages: any): {} => 
   }, {});
 };
 
+// tslint:disable-next-line:no-any
 export const translationMessages: any = {
-  en: formatTranslationMessages(LocaleEnum.en.toString(), enTranslationMessages),
-  de: formatTranslationMessages(LocaleEnum.de.toString(), deTranslationMessages)
+  en: formatTranslationMessages(LocaleEnum.EN.toString().toLowerCase(), enTranslationMessages),
+  de: formatTranslationMessages(LocaleEnum.DE.toString().toLowerCase(), deTranslationMessages)
 };

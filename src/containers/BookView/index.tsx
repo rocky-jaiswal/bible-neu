@@ -65,7 +65,7 @@ export class BookView extends React.Component<Props & DispatchProps> {
         <div className="chapters">
           {toRange(this.props.availableChapters).map((n: number) => (
             <div className="chapter" key={n}>
-              <Link to={`/books/${this.props.selectedBook}/${n}`}>{n}</Link>
+              <Link to={`/books/${this.props.selectedBook}/chapters/${n}`}>{n}</Link>
             </div>
           ))}
         </div>

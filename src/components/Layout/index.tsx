@@ -35,6 +35,7 @@ const Layout = (props: Props) => {
           rightSidebarVisible={props.rightSidebarVisible}
           sidebarLoading={props.loading}
           switchLanguage={props.switchLanguage}
+          toggleRightSidebar={props.toggleRightSidebar}
         />
       </div>
       <Footer />

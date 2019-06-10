@@ -30,7 +30,7 @@ const routes: Routes = {
     sequence: 3,
     component: ChapterView,
     exact: true,
-    path: '/books/:book/chapter/:chapter'
+    path: '/books/:book/chapters/:chapter'
   }
 };
 

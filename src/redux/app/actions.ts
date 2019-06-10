@@ -1,11 +1,12 @@
-// import { Verse } from './types';
 import { LocaleEnum } from '../../constants/enums';
+import { BookAndChapters, Verse } from './types';
 
 export const SWITCH_LANGUAGE           = 'app/App/SWITCH_LANGUAGE';
 export const TOGGLE_RIGHT_SIDEBAR      = 'app/App/TOGGLE_RIGHT_SIDEBAR';
 
 export const FETCH_BOOKS_AND_CHAPTERS  = 'app/App/FETCH_BOOKS_AND_CHAPTERS';
 export const FETCH_CHAPTERS            = 'app/App/FETCH_CHAPTERS';
+export const FETCH_VERSES              = 'app/App/FETCH_VERSES';
 
 export const SET_CURRENT_BOOK          = 'app/App/SET_CURRENT_BOOK';
 export const SET_CURRENT_CHAPTER       = 'app/App/SET_CURRENT_CHAPTER';
@@ -35,6 +36,13 @@ export function fetchChapters(payload: string) {
   return {
     payload,
     type: FETCH_CHAPTERS
+  };
+}
+
+export function fetchVerses(payload: BookAndChapters) {
+  return {
+    payload,
+    type: FETCH_VERSES
   };
 }
 
@@ -69,6 +77,13 @@ export function setChaptersResult(payload: number) {
   return {
     payload,
     type: SET_CHAPTERS_RESULT
+  };
+}
+
+export function setVersesResult(payload: Verse[]) {
+  return {
+    payload,
+    type: SET_VERSES_RESULT
   };
 }
 

@@ -3,7 +3,7 @@ import { Immutable } from 'seamless-immutable';
 import { connect } from 'react-redux';
 
 import { Dispatch, RootStateType } from '../../constants/types';
-import { fetchBooksAndChapters } from '../../redux/app/actions';
+import { fetchBooksAndChapters, toggleRightSidebar } from '../../redux/app/actions';
 
 import { wrapped } from '../Wrapper';
 
@@ -17,6 +17,7 @@ interface Props {
 
 interface DispatchProps {
   fetchBooksAndChapters(): void;
+  toggleRightSidebar(): void;
 }
 
 const mapStateToProps = (state: RootStateType): Props => {
@@ -28,7 +29,8 @@ const mapStateToProps = (state: RootStateType): Props => {
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    fetchBooksAndChapters: () => dispatch(fetchBooksAndChapters())
+    fetchBooksAndChapters: () => dispatch(fetchBooksAndChapters()),
+    toggleRightSidebar: () => dispatch(toggleRightSidebar())
   };
 };
 
@@ -41,7 +43,7 @@ export class Root extends React.Component<Props & DispatchProps> {
   render() {
     return (
       <div className="rootContainer">
-        <BookList bookNames={this.props.books} grid={true} />
+        <BookList bookNames={this.props.books} grid={true} toggleRightSidebar={this.props.toggleRightSidebar} />
       </div>
     );
   }

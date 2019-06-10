@@ -13,6 +13,7 @@ interface Props {
   bookNames: Immutable<string[]>;
   rightSidebarVisible: boolean;
   switchLanguage(payload: LocaleEnum): void;
+  toggleRightSidebar(): void;
 }
 
 const RightSidebar = (props: Props) => {
@@ -28,9 +29,11 @@ const RightSidebar = (props: Props) => {
           <LanguageSwitcher
             selectedLocale={props.selectedLocale}
             switchLanguage={props.switchLanguage}
+            toggleRightSidebar={props.toggleRightSidebar}
           />
           <BookList
             bookNames={props.bookNames}
+            toggleRightSidebar={props.toggleRightSidebar}
           />
         </div>
       );

@@ -3,8 +3,9 @@ import { LocaleEnum } from '../../constants/enums';
 export interface Verse {
   book: string;
   chapter: number;
-  verse: number;
+  verseNumber: number;
   text: string;
+  language: LocaleEnum;
 }
 
 export interface BookAndChapters {
