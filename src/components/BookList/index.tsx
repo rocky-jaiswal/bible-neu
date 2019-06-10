@@ -15,7 +15,7 @@ const BookList = (props: Props) => {
   const books = (booknames: Immutable<string[]>) => {
     return booknames.asMutable().map((b, i) => {
       return (
-        <div className="book" key={i} onClick={props.toggleRightSidebar} >
+        <div className="book" key={i} onClick={!props.grid ? props.toggleRightSidebar : () => ({})} >
           <Link to={`/books/${b}`}>{b}</Link>
         </div>
       );

@@ -6,12 +6,12 @@ const environmentConfiguration = (environment: string) => {
     };
   }
   return {
-    baseURL: `https://api.bible-neu.live`
+    baseURL: `https://bible-api-wkjklnuxia-uc.a.run.app`
   };
 };
 
 const Config = {
-  env: environmentConfiguration(process.env.REACT_APP_ENVIRONMENT || 'development')
+  env: environmentConfiguration(process.env.REACT_APP_ENV || 'development')
 };
 
 export default Config;
