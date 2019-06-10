@@ -7,3 +7,22 @@
 body {
   font-family: var(--main-font);
 }
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 1.75em;
+  margin-bottom: 0.5714em;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-bottom: 0.6666em;
+}
+
+hr {
+	border-top: 1px solid var(--main-dark-gray);
+}

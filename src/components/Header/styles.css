@@ -24,11 +24,11 @@
   padding: var(--vspace) calc(var(--hspace) * 2);
 }
 
-.headerContainer h1 {
+.headerContainer p {
   font-size: 1.5rem;
 }
 
-.headerContainer h1 a {
+.headerContainer p a {
   color: var(--main-light-gray);
   text-decoration: none;
 }

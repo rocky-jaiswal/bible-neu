@@ -1,3 +1,16 @@
 .bookContainer {
+  width: 100%;
   padding: var(--vspace) calc(var(--hspace) * 2);
+}
+
+.chapters {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  margin-top: 20px;
+}
+
+.chapters a {
+  color: var(--main-dark-gray);
+  text-decoration: none;
 }

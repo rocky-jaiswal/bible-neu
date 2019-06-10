@@ -6,6 +6,7 @@ import './styles.css';
 
 interface Props {
   bookNames: Immutable<string[]>;
+  grid?: boolean;
 }
 
 const BookList = (props: Props) => {
@@ -21,7 +22,7 @@ const BookList = (props: Props) => {
   };
 
   return (
-    <div className="chapterList">
+    <div className={props.grid ? 'chapterlist-grid' : 'chapterlist'}>
       {books(props.bookNames)}
     </div>
   );

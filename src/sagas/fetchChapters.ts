@@ -3,6 +3,7 @@ import { call, put, takeLatest, select } from 'redux-saga/effects';
 import {
   FETCH_CHAPTERS,
   queryInProgress,
+  setCurrentBook,
   queryFailed,
   setChaptersResult,
   fetchBooksSuccessful,
@@ -13,9 +14,11 @@ import { RootState } from '../constants/types';
 import { getFromDBOrAPI } from './fetchBooksAndChapters';
 import { BookAndChapters } from '../redux/app/types';
 
-export function* fetchChapters(): {} {
+// tslint:disable-next-line:no-any
+export function* fetchChapters(action: any): {} {
   try {
     yield put(queryInProgress());
+    yield put(setCurrentBook(action.payload));
     const state: RootState = yield select();
     const result = yield call(getFromDBOrAPI, state.app.selectedBook!);
     if (state.app.books.length === 0) {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { Immutable } from 'seamless-immutable';
 import { connect } from 'react-redux';
 
 import { Dispatch, RootStateType } from '../../constants/types';
@@ -8,9 +8,11 @@ import { fetchBooksAndChapters } from '../../redux/app/actions';
 import { wrapped } from '../Wrapper';
 
 import './styles.css';
+import BookList from '../../components/BookList';
 
 interface Props {
   loading: boolean;
+  books: Immutable<string[]>;
 }
 
 interface DispatchProps {
@@ -19,7 +21,8 @@ interface DispatchProps {
 
 const mapStateToProps = (state: RootStateType): Props => {
   return {
-    loading: state.app.loading
+    loading: state.app.loading,
+    books: state.app.books
   };
 };
 
@@ -38,9 +41,7 @@ export class Root extends React.Component<Props & DispatchProps> {
   render() {
     return (
       <div className="rootContainer">
-        <h1 className="title">
-          <FormattedMessage id="root.heading" />
-        </h1>
+        <BookList bookNames={this.props.books} grid={true} />
       </div>
     );
   }

@@ -31,8 +31,9 @@ export function fetchBooksAndChapters() {
   };
 }
 
-export function fetchChapters() {
+export function fetchChapters(payload: string) {
   return {
+    payload,
     type: FETCH_CHAPTERS
   };
 }

@@ -14,9 +14,9 @@ const Header = (props: Props) => {
   return (
     <div className="header headerFixed">
       <div className="headerContainer">
-        <h1>
+        <p>
           <Link to="/">Simple Bible</Link>
-        </h1>
+        </p>
         <LoadingSpinner visible={props.loading} />
         <div className="logo" onClick={() => props.toggleRightSidebar()}>
           <svg

@@ -1,8 +1,17 @@
-.chapterList {
-  display: flex;
-  flex-direction: column;
+.chapterlist {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
   margin-top: 5px;
 }
+
+.chapterlist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin-top: 5px;
+}
+
 
 .book {
   display: flex;
@@ -12,7 +21,7 @@
   border-bottom: 1px solid var(--main-dark-gray);
 }
 
-.chapterList a {
-  color: var(--main-dark);
+.chapterlist a, .chapterlist-grid a {
+  color: var(--main-dark-gray);
   text-decoration: none;
 }
