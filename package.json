@@ -37,7 +37,7 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/react-router-redux": "^5.0.16",
     "@types/seamless-immutable": "^7.1.4",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.13.1",
     "redux-devtools-extension": "^2.13.7",
     "tslint": "^5.11.0",
     "tslint-react": "^4.0.0",
