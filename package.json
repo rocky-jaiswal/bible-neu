@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "connected-react-router": "^6.0.0",
     "dexie": "^2.0.4",
     "normalize.css": "^8.0.0",
