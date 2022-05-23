@@ -5,7 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "connected-react-router": "^6.0.0",
-    "dexie": "^2.0.4",
+    "dexie": "^3.2.2",
     "normalize.css": "^8.0.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
